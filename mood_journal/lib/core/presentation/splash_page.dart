@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 // import 'package:provider/provider.dart';
 import 'dart:ui' show lerpDouble;
+
+import 'package:mood_journal/core/ui_features/images.dart';
 
 // import 'package:flutter_riverpod/flutter_riverpod.dart';
 // import 'package:flutter_svg/flutter_svg.dart';
@@ -16,6 +19,7 @@ class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        debugShowCheckedModeBanner: false,
         home: Scaffold(
             backgroundColor: Colors.white,
             appBar: AppBar(),
@@ -38,7 +42,8 @@ class SplashPage extends StatelessWidget {
                                     fontSize: 26,
                                     fontWeight: FontWeight.normal,
                                     color: Colors.black),
-                          ))
+                          )),
+                          SizedBox(child: Image.asset(Images.logo))
                         ])))));
   }
 }
