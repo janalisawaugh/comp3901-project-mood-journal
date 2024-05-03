@@ -21,4 +21,5 @@ class Images {
   static const String searchIconFilled = 'assets/images/searchiconfilled.svg';
   static const String userIcon = 'assets/images/usericon.png';
   static const String writeIcon = 'assets/images/writeicon.svg';
+  static const String loginLogo = 'assets/images/loginLogo.png';
 }
