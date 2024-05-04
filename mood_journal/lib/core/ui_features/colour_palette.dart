@@ -10,4 +10,6 @@ abstract class ColourPalette {
   static const Color gray = Color.fromRGBO(217, 217, 217, 1);
   static const Color black = Color.fromRGBO(0, 0, 0, 1);
   static const Color white = Color.fromRGBO(249, 248, 248, 1);
+  static const Color grayText = Color.fromRGBO(185, 184, 184, 1);
+  static const Color lightgrayText = Color.fromRGBO(201, 198, 198, 1);
 }

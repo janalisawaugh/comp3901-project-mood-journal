@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:mood_journal/core/presentation/sign_in_page.dart';
 import 'package:mood_journal/core/ui_features/colour_palette.dart';
 // import 'package:provider/provider.dart';
 import 'dart:ui' show lerpDouble;
@@ -9,7 +10,7 @@ import 'package:mood_journal/core/ui_features/images.dart';
 
 // import 'package:flutter_riverpod/flutter_riverpod.dart';
 // import 'package:flutter_svg/flutter_svg.dart';
-
+//functionality for onpressed
 void main() {
   runApp(const LoginPage());
 }
@@ -63,7 +64,13 @@ class LoginPage extends StatelessWidget {
                             child: SizedBox(
                               width: 200,
                               child: TextButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const SignInPage()));
+                                },
                                 style: TextButton.styleFrom(
                                   backgroundColor: ColourPalette.white,
                                   shape: RoundedRectangleBorder(
@@ -79,18 +86,6 @@ class LoginPage extends StatelessWidget {
                               ),
                             ),
                           ),
-                          // SizedBox(
-                          //     child: Text(
-                          //   "Mood Journaling App",
-                          //   style: Theme.of(context)
-                          //       .textTheme
-                          //       .displaySmall
-                          //       ?.copyWith(
-                          //           fontFamily: 'Roboto',
-                          //           fontSize: 26,
-                          //           fontWeight: FontWeight.normal,
-                          //           color: Colors.black),
-                          // )),
                         ])))));
   }
 }

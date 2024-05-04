@@ -22,4 +22,5 @@ class Images {
   static const String userIcon = 'assets/images/usericon.png';
   static const String writeIcon = 'assets/images/writeicon.svg';
   static const String loginLogo = 'assets/images/loginLogo.png';
+  static const String loginLogo2 = 'assets/images/loginLogo2.png';
 }
