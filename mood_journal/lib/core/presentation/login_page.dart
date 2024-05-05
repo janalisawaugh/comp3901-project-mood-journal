@@ -68,8 +68,7 @@ class LoginPage extends StatelessWidget {
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) =>
-                                              const SignInPage()));
+                                          builder: (context) => SignInPage()));
                                 },
                                 style: TextButton.styleFrom(
                                   backgroundColor: ColourPalette.white,

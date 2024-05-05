@@ -11,12 +11,15 @@ import 'package:mood_journal/core/ui_features/images.dart';
 // import 'package:flutter_svg/flutter_svg.dart';
 
 void main() {
-  runApp(const SignInPage());
+  runApp(SignInPage());
 }
 
-class SignInPage extends StatelessWidget {
-  const SignInPage({super.key});
+class SignInPage extends StatefulWidget {
+  @override
+  State<SignInPage> createState() => _SignInPage();
+}
 
+class _SignInPage extends State<SignInPage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -85,6 +88,10 @@ class SignInPage extends StatelessWidget {
                                         floatingLabelBehavior:
                                             FloatingLabelBehavior.never,
                                         labelText: "Enter email address",
+                                        labelStyle: TextStyle(
+                                            fontFamily: 'Inter',
+                                            fontSize: 12,
+                                            color: ColourPalette.lightgrayText),
                                         border: OutlineInputBorder(
                                             borderRadius: BorderRadius.all(
                                                 Radius.circular(8)))),
@@ -122,6 +129,10 @@ class SignInPage extends StatelessWidget {
                                         floatingLabelBehavior:
                                             FloatingLabelBehavior.never,
                                         labelText: "Enter password",
+                                        labelStyle: TextStyle(
+                                            fontFamily: 'Inter',
+                                            fontSize: 12,
+                                            color: ColourPalette.lightgrayText),
                                         border: OutlineInputBorder(
                                             borderRadius: BorderRadius.all(
                                                 Radius.circular(8)))))

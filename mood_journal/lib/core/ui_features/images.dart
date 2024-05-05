@@ -23,4 +23,9 @@ class Images {
   static const String writeIcon = 'assets/images/writeicon.svg';
   static const String loginLogo = 'assets/images/loginLogo.png';
   static const String loginLogo2 = 'assets/images/loginLogo2.png';
+  static const String accountsetuplogo = 'assets/images/accountsetuplogo.png';
+  static const String step1 = 'assets/images/step1.png';
+  static const String step2 = 'assets/images/step2.png';
+  static const String step3 = 'assets/images/step3.png';
+  static const String step4 = 'assets/images/step4.png';
 }
