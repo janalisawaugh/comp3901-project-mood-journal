@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:mood_journal/core/presentation/account_setup_info.dart';
 import 'package:mood_journal/core/ui_features/colour_palette.dart';
 // import 'package:provider/provider.dart';
 import 'dart:ui' show lerpDouble;
@@ -81,24 +82,29 @@ class _SignInPage extends State<SignInPage> {
                                             color: ColourPalette.white),
                                   ),
                                 ),
-                                TextFormField(
-                                    decoration: const InputDecoration(
-                                        filled: true,
-                                        fillColor: ColourPalette.white,
-                                        floatingLabelBehavior:
-                                            FloatingLabelBehavior.never,
-                                        labelText: "Enter email address",
-                                        labelStyle: TextStyle(
-                                            fontFamily: 'Inter',
-                                            fontSize: 12,
-                                            color: ColourPalette.lightgrayText),
-                                        border: OutlineInputBorder(
-                                            borderRadius: BorderRadius.all(
-                                                Radius.circular(8)))),
-                                    style: TextStyle(
-                                        fontFamily: 'Inter',
-                                        fontSize: 12,
-                                        color: ColourPalette.lightgrayText))
+                                SizedBox(
+                                  height: 40,
+                                  width: 283,
+                                  child: TextFormField(
+                                      decoration: const InputDecoration(
+                                          filled: true,
+                                          fillColor: ColourPalette.white,
+                                          floatingLabelBehavior:
+                                              FloatingLabelBehavior.never,
+                                          labelText: "Enter email address",
+                                          labelStyle: TextStyle(
+                                              fontFamily: 'Inter',
+                                              fontSize: 12,
+                                              color:
+                                                  ColourPalette.lightgrayText),
+                                          border: OutlineInputBorder(
+                                              borderRadius: BorderRadius.all(
+                                                  Radius.circular(5)))),
+                                      style: TextStyle(
+                                          fontFamily: 'Inter',
+                                          fontSize: 12,
+                                          color: ColourPalette.lightgrayText)),
+                                )
                               ]),
                           SizedBox(height: 30),
                           Column(
@@ -122,26 +128,39 @@ class _SignInPage extends State<SignInPage> {
                                             color: ColourPalette.white),
                                   ),
                                 ),
-                                TextFormField(
-                                    decoration: const InputDecoration(
-                                        filled: true,
-                                        fillColor: ColourPalette.white,
-                                        floatingLabelBehavior:
-                                            FloatingLabelBehavior.never,
-                                        labelText: "Enter password",
-                                        labelStyle: TextStyle(
-                                            fontFamily: 'Inter',
-                                            fontSize: 12,
-                                            color: ColourPalette.lightgrayText),
-                                        border: OutlineInputBorder(
-                                            borderRadius: BorderRadius.all(
-                                                Radius.circular(8)))))
+                                SizedBox(
+                                  height: 40,
+                                  width: 283,
+                                  child: TextFormField(
+                                      obscureText: true,
+                                      decoration: const InputDecoration(
+                                          filled: true,
+                                          fillColor: ColourPalette.white,
+                                          floatingLabelBehavior:
+                                              FloatingLabelBehavior.never,
+                                          labelText: "Enter password",
+                                          labelStyle: TextStyle(
+                                              fontFamily: 'Inter',
+                                              fontSize: 12,
+                                              color:
+                                                  ColourPalette.lightgrayText),
+                                          border: OutlineInputBorder(
+                                              borderRadius: BorderRadius.all(
+                                                  Radius.circular(5))))),
+                                )
                               ]),
                           SizedBox(height: 100),
                           SizedBox(
                             width: 200,
                             child: TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                //TODO fix navigation
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            AccountSetupInfoPage()));
+                              },
                               style: TextButton.styleFrom(
                                 backgroundColor: ColourPalette.white,
                                 shape: RoundedRectangleBorder(
@@ -157,7 +176,8 @@ class _SignInPage extends State<SignInPage> {
                             ),
                           ),
                           SizedBox(height: 50),
-                          const Text("Don't have an account? Create an account",
+                          const Text(
+                              "Don't have an account? Create an account", //TODO push further to the bottom, change the colour of create account and make it a text button
                               style: TextStyle(
                                   color: ColourPalette.grayText,
                                   fontFamily: 'Inter',

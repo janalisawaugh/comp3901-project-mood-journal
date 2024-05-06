@@ -68,13 +68,14 @@ class _AccountInfoPage extends State<AccountSetupInfoPage> {
                                     fontFamily: 'Inter',
                                     fontSize: 15,
                                     fontWeight: FontWeight.w400)),
+                            SizedBox(height: 15),
                             Image.asset(Images.step1),
                             Column(
                               //column for the text fields
                               children: [
                                 Padding(
                                   padding:
-                                      const EdgeInsets.fromLTRB(40, 10, 40, 40),
+                                      const EdgeInsets.fromLTRB(40, 10, 40, 20),
                                   child: Column(
                                       mainAxisAlignment:
                                           MainAxisAlignment.start,
@@ -99,42 +100,47 @@ class _AccountInfoPage extends State<AccountSetupInfoPage> {
                                                     color: ColourPalette.black),
                                           ),
                                         ),
-                                        Material(
-                                          elevation: 8,
-                                          shadowColor: ColourPalette.gray,
-                                          borderRadius:
-                                              BorderRadius.circular(8),
-                                          child: TextFormField(
-                                              decoration: const InputDecoration(
-                                                  filled: true,
-                                                  fillColor:
-                                                      ColourPalette.white,
-                                                  floatingLabelBehavior:
-                                                      FloatingLabelBehavior
-                                                          .never,
-                                                  labelText: "Enter name",
-                                                  labelStyle: TextStyle(
-                                                      fontFamily: 'Inter',
-                                                      fontSize: 12,
-                                                      color: ColourPalette
-                                                          .lightgrayText),
-                                                  border: OutlineInputBorder(
-                                                      borderRadius:
-                                                          BorderRadius.all(
-                                                              Radius.circular(
-                                                                  8)),
-                                                      borderSide:
-                                                          BorderSide.none)),
-                                              style: TextStyle(
-                                                  fontFamily: 'Inter',
-                                                  fontSize: 12,
-                                                  color: ColourPalette.black)),
+                                        SizedBox(
+                                          height: 40,
+                                          width: 283,
+                                          child: Material(
+                                            elevation: 5,
+                                            shadowColor: ColourPalette.gray,
+                                            borderRadius:
+                                                BorderRadius.circular(8),
+                                            child: TextFormField(
+                                                decoration: const InputDecoration(
+                                                    filled: true,
+                                                    fillColor:
+                                                        ColourPalette.white,
+                                                    floatingLabelBehavior:
+                                                        FloatingLabelBehavior
+                                                            .never,
+                                                    labelText: "Enter name",
+                                                    labelStyle: TextStyle(
+                                                        fontFamily: 'Inter',
+                                                        fontSize: 12,
+                                                        color: ColourPalette
+                                                            .lightgrayText),
+                                                    border: OutlineInputBorder(
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius.circular(
+                                                                    5)),
+                                                        borderSide:
+                                                            BorderSide.none)),
+                                                style: TextStyle(
+                                                    fontFamily: 'Inter',
+                                                    fontSize: 12,
+                                                    color:
+                                                        ColourPalette.black)),
+                                          ),
                                         )
                                       ]),
                                 ),
                                 Padding(
                                   padding:
-                                      const EdgeInsets.fromLTRB(40, 10, 40, 40),
+                                      const EdgeInsets.fromLTRB(40, 10, 40, 20),
                                   child: Column(
                                       mainAxisAlignment:
                                           MainAxisAlignment.start,
@@ -159,41 +165,52 @@ class _AccountInfoPage extends State<AccountSetupInfoPage> {
                                                     color: ColourPalette.black),
                                           ),
                                         ),
-                                        Material(
-                                          elevation: 8,
-                                          shadowColor: ColourPalette.gray,
-                                          borderRadius:
-                                              BorderRadius.circular(8),
-                                          child: TextFormField(
-                                              decoration: const InputDecoration(
-                                                  filled: true,
-                                                  fillColor:
-                                                      ColourPalette.white,
-                                                  floatingLabelBehavior:
-                                                      FloatingLabelBehavior
-                                                          .never,
-                                                  labelText: "Enter username",
-                                                  labelStyle: TextStyle(
-                                                      fontFamily: 'Inter',
-                                                      fontSize: 12,
-                                                      color: ColourPalette
-                                                          .lightgrayText),
-                                                  border: OutlineInputBorder(
-                                                    borderRadius:
-                                                        BorderRadius.all(
-                                                            Radius.circular(8)),
-                                                    borderSide: BorderSide.none,
-                                                  )),
-                                              style: TextStyle(
-                                                  fontFamily: 'Inter',
-                                                  fontSize: 12,
-                                                  color: ColourPalette.black)),
+                                        SizedBox(
+                                          height: 40,
+                                          width: 283,
+                                          child: Material(
+                                            elevation: 8,
+                                            shadowColor: ColourPalette.gray,
+                                            borderRadius:
+                                                BorderRadius.circular(5),
+                                            child: TextFormField(
+                                                decoration:
+                                                    const InputDecoration(
+                                                        filled: true,
+                                                        fillColor:
+                                                            ColourPalette.white,
+                                                        floatingLabelBehavior:
+                                                            FloatingLabelBehavior
+                                                                .never,
+                                                        labelText:
+                                                            "Enter username",
+                                                        labelStyle: TextStyle(
+                                                            fontFamily: 'Inter',
+                                                            fontSize: 12,
+                                                            color: ColourPalette
+                                                                .lightgrayText),
+                                                        border:
+                                                            OutlineInputBorder(
+                                                          borderRadius:
+                                                              BorderRadius.all(
+                                                                  Radius
+                                                                      .circular(
+                                                                          5)),
+                                                          borderSide:
+                                                              BorderSide.none,
+                                                        )),
+                                                style: TextStyle(
+                                                    fontFamily: 'Inter',
+                                                    fontSize: 12,
+                                                    color:
+                                                        ColourPalette.black)),
+                                          ),
                                         )
                                       ]),
                                 ),
                                 Padding(
                                   padding:
-                                      const EdgeInsets.fromLTRB(40, 10, 40, 40),
+                                      const EdgeInsets.fromLTRB(40, 10, 40, 20),
                                   child: Column(
                                       mainAxisAlignment:
                                           MainAxisAlignment.start,
@@ -218,43 +235,48 @@ class _AccountInfoPage extends State<AccountSetupInfoPage> {
                                                     color: ColourPalette.black),
                                           ),
                                         ),
-                                        Material(
-                                          elevation: 8,
-                                          shadowColor: ColourPalette.gray,
-                                          borderRadius:
-                                              BorderRadius.circular(8),
-                                          child: TextFormField(
-                                              decoration: const InputDecoration(
-                                                  filled: true,
-                                                  fillColor:
-                                                      ColourPalette.white,
-                                                  floatingLabelBehavior:
-                                                      FloatingLabelBehavior
-                                                          .never,
-                                                  labelText:
-                                                      "Enter email address",
-                                                  labelStyle: TextStyle(
-                                                      fontFamily: 'Inter',
-                                                      fontSize: 12,
-                                                      color: ColourPalette
-                                                          .lightgrayText),
-                                                  border: OutlineInputBorder(
-                                                      borderRadius:
-                                                          BorderRadius.all(
-                                                              Radius.circular(
-                                                                  8)),
-                                                      borderSide:
-                                                          BorderSide.none)),
-                                              style: TextStyle(
-                                                  fontFamily: 'Inter',
-                                                  fontSize: 12,
-                                                  color: ColourPalette.black)),
+                                        SizedBox(
+                                          height: 40,
+                                          width: 283,
+                                          child: Material(
+                                            elevation: 8,
+                                            shadowColor: ColourPalette.gray,
+                                            borderRadius:
+                                                BorderRadius.circular(5),
+                                            child: TextFormField(
+                                                decoration: const InputDecoration(
+                                                    filled: true,
+                                                    fillColor:
+                                                        ColourPalette.white,
+                                                    floatingLabelBehavior:
+                                                        FloatingLabelBehavior
+                                                            .never,
+                                                    labelText:
+                                                        "Enter email address",
+                                                    labelStyle: TextStyle(
+                                                        fontFamily: 'Inter',
+                                                        fontSize: 12,
+                                                        color: ColourPalette
+                                                            .lightgrayText),
+                                                    border: OutlineInputBorder(
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius.circular(
+                                                                    5)),
+                                                        borderSide:
+                                                            BorderSide.none)),
+                                                style: TextStyle(
+                                                    fontFamily: 'Inter',
+                                                    fontSize: 12,
+                                                    color:
+                                                        ColourPalette.black)),
+                                          ),
                                         )
                                       ]),
                                 ),
                                 Padding(
                                   padding:
-                                      const EdgeInsets.fromLTRB(40, 10, 40, 40),
+                                      const EdgeInsets.fromLTRB(40, 10, 40, 20),
                                   child: Column(
                                       mainAxisAlignment:
                                           MainAxisAlignment.start,
@@ -279,42 +301,48 @@ class _AccountInfoPage extends State<AccountSetupInfoPage> {
                                                     color: ColourPalette.black),
                                           ),
                                         ),
-                                        Material(
-                                          elevation: 8,
-                                          shadowColor: ColourPalette.gray,
-                                          borderRadius:
-                                              BorderRadius.circular(8),
-                                          child: TextFormField(
-                                              decoration: const InputDecoration(
-                                                  filled: true,
-                                                  fillColor:
-                                                      ColourPalette.white,
-                                                  floatingLabelBehavior:
-                                                      FloatingLabelBehavior
-                                                          .never,
-                                                  labelText: "Enter password",
-                                                  labelStyle: TextStyle(
-                                                      fontFamily: 'Inter',
-                                                      fontSize: 12,
-                                                      color: ColourPalette
-                                                          .lightgrayText),
-                                                  border: OutlineInputBorder(
-                                                      borderRadius:
-                                                          BorderRadius.all(
-                                                              Radius.circular(
-                                                                  8)),
-                                                      borderSide:
-                                                          BorderSide.none)),
-                                              style: TextStyle(
-                                                  fontFamily: 'Inter',
-                                                  fontSize: 12,
-                                                  color: ColourPalette.black)),
+                                        SizedBox(
+                                          height: 40,
+                                          width: 283,
+                                          child: Material(
+                                            elevation: 8,
+                                            shadowColor: ColourPalette.gray,
+                                            borderRadius:
+                                                BorderRadius.circular(5),
+                                            child: TextFormField(
+                                                obscureText: true,
+                                                decoration: const InputDecoration(
+                                                    filled: true,
+                                                    fillColor:
+                                                        ColourPalette.white,
+                                                    floatingLabelBehavior:
+                                                        FloatingLabelBehavior
+                                                            .never,
+                                                    labelText: "Enter password",
+                                                    labelStyle: TextStyle(
+                                                        fontFamily: 'Inter',
+                                                        fontSize: 12,
+                                                        color: ColourPalette
+                                                            .lightgrayText),
+                                                    border: OutlineInputBorder(
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius.circular(
+                                                                    5)),
+                                                        borderSide:
+                                                            BorderSide.none)),
+                                                style: TextStyle(
+                                                    fontFamily: 'Inter',
+                                                    fontSize: 12,
+                                                    color:
+                                                        ColourPalette.black)),
+                                          ),
                                         )
                                       ]),
                                 ),
                                 Padding(
                                   padding:
-                                      const EdgeInsets.fromLTRB(40, 10, 40, 40),
+                                      const EdgeInsets.fromLTRB(40, 10, 40, 20),
                                   child: Column(
                                       mainAxisAlignment:
                                           MainAxisAlignment.start,
@@ -339,42 +367,49 @@ class _AccountInfoPage extends State<AccountSetupInfoPage> {
                                                     color: ColourPalette.black),
                                           ),
                                         ),
-                                        Material(
-                                          elevation: 8,
-                                          shadowColor: ColourPalette.gray,
-                                          borderRadius:
-                                              BorderRadius.circular(8),
-                                          child: TextFormField(
-                                              decoration: const InputDecoration(
-                                                  filled: true,
-                                                  fillColor:
-                                                      ColourPalette.white,
-                                                  floatingLabelBehavior:
-                                                      FloatingLabelBehavior
-                                                          .never,
-                                                  labelText: "Retype password",
-                                                  labelStyle: TextStyle(
-                                                      fontFamily: 'Inter',
-                                                      fontSize: 12,
-                                                      color: ColourPalette
-                                                          .lightgrayText),
-                                                  border: OutlineInputBorder(
-                                                      borderRadius:
-                                                          BorderRadius.all(
-                                                              Radius.circular(
-                                                                  8)),
-                                                      borderSide:
-                                                          BorderSide.none)),
-                                              style: TextStyle(
-                                                  fontFamily: 'Inter',
-                                                  fontSize: 12,
-                                                  color: ColourPalette.black)),
+                                        SizedBox(
+                                          height: 40,
+                                          width: 283,
+                                          child: Material(
+                                            elevation: 8,
+                                            shadowColor: ColourPalette.gray,
+                                            borderRadius:
+                                                BorderRadius.circular(5),
+                                            child: TextFormField(
+                                                obscureText: true,
+                                                decoration: const InputDecoration(
+                                                    filled: true,
+                                                    fillColor:
+                                                        ColourPalette.white,
+                                                    floatingLabelBehavior:
+                                                        FloatingLabelBehavior
+                                                            .never,
+                                                    labelText:
+                                                        "Retype password",
+                                                    labelStyle: TextStyle(
+                                                        fontFamily: 'Inter',
+                                                        fontSize: 12,
+                                                        color: ColourPalette
+                                                            .lightgrayText),
+                                                    border: OutlineInputBorder(
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius.circular(
+                                                                    5)),
+                                                        borderSide:
+                                                            BorderSide.none)),
+                                                style: TextStyle(
+                                                    fontFamily: 'Inter',
+                                                    fontSize: 12,
+                                                    color:
+                                                        ColourPalette.black)),
+                                          ),
                                         )
                                       ]),
                                 ),
                                 Padding(
                                   padding:
-                                      const EdgeInsets.fromLTRB(40, 10, 40, 40),
+                                      const EdgeInsets.fromLTRB(40, 10, 40, 20),
                                   child: Column(
                                       mainAxisAlignment:
                                           MainAxisAlignment.start,
@@ -399,37 +434,42 @@ class _AccountInfoPage extends State<AccountSetupInfoPage> {
                                                     color: ColourPalette.black),
                                           ),
                                         ),
-                                        Material(
-                                          elevation: 8,
-                                          shadowColor: ColourPalette.gray,
-                                          borderRadius:
-                                              BorderRadius.circular(8),
-                                          child: TextFormField(
-                                              decoration: const InputDecoration(
-                                                  filled: true,
-                                                  fillColor:
-                                                      ColourPalette.white,
-                                                  floatingLabelBehavior:
-                                                      FloatingLabelBehavior
-                                                          .never,
-                                                  labelText:
-                                                      "Enter phone number",
-                                                  labelStyle: TextStyle(
-                                                      fontFamily: 'Inter',
-                                                      fontSize: 12,
-                                                      color: ColourPalette
-                                                          .lightgrayText),
-                                                  border: OutlineInputBorder(
-                                                      borderRadius:
-                                                          BorderRadius.all(
-                                                              Radius.circular(
-                                                                  8)),
-                                                      borderSide:
-                                                          BorderSide.none)),
-                                              style: TextStyle(
-                                                  fontFamily: 'Inter',
-                                                  fontSize: 12,
-                                                  color: ColourPalette.black)),
+                                        SizedBox(
+                                          height: 40,
+                                          width: 283,
+                                          child: Material(
+                                            elevation: 8,
+                                            shadowColor: ColourPalette.gray,
+                                            borderRadius:
+                                                BorderRadius.circular(5),
+                                            child: TextFormField(
+                                                decoration: const InputDecoration(
+                                                    filled: true,
+                                                    fillColor:
+                                                        ColourPalette.white,
+                                                    floatingLabelBehavior:
+                                                        FloatingLabelBehavior
+                                                            .never,
+                                                    labelText:
+                                                        "Enter phone number",
+                                                    labelStyle: TextStyle(
+                                                        fontFamily: 'Inter',
+                                                        fontSize: 12,
+                                                        color: ColourPalette
+                                                            .lightgrayText),
+                                                    border: OutlineInputBorder(
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius.circular(
+                                                                    5)),
+                                                        borderSide:
+                                                            BorderSide.none)),
+                                                style: TextStyle(
+                                                    fontFamily: 'Inter',
+                                                    fontSize: 12,
+                                                    color:
+                                                        ColourPalette.black)),
+                                          ),
                                         )
                                       ]),
                                 ),
@@ -439,7 +479,7 @@ class _AccountInfoPage extends State<AccountSetupInfoPage> {
                             SizedBox(
                               width: 200,
                               child: TextButton(
-                                onPressed: () {},
+                                onPressed: () {}, //TODO add navigation
                                 style: TextButton.styleFrom(
                                   backgroundColor: ColourPalette.purple,
                                   shape: RoundedRectangleBorder(

@@ -28,4 +28,5 @@ class Images {
   static const String step2 = 'assets/images/step2.png';
   static const String step3 = 'assets/images/step3.png';
   static const String step4 = 'assets/images/step4.png';
+  static const String profilePicture = 'assets/images/profilepic.png';
 }
