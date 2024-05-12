@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:datepicker_dropdown/datepicker_dropdown.dart';
+import 'package:mood_journal/core/presentation/account_setup_consent.dart';
 import 'package:mood_journal/core/ui_features/colour_palette.dart';
 // import 'package:provider/provider.dart';
 import 'dart:ui' show lerpDouble;
@@ -11,9 +12,9 @@ import 'package:mood_journal/core/ui_features/images.dart';
 // import 'package:flutter_riverpod/flutter_riverpod.dart';
 // import 'package:flutter_svg/flutter_svg.dart';
 
-void main() {
-  runApp(AccountSetupAboutPage());
-}
+// void main() {
+//   runApp(AccountSetupAboutPage());
+// }
 
 class AccountSetupAboutPage extends StatefulWidget {
   @override
@@ -21,6 +22,13 @@ class AccountSetupAboutPage extends StatefulWidget {
 }
 
 class _AccountAboutPage extends State<AccountSetupAboutPage> {
+  String selectedDay = "";
+  // String selectedMonth;
+  // String selectedYear;
+
+  List<String> days = List.generate(31, (index) => (index + 1).toString());
+  // List<String> months = List.generate(12, (index) => (index + 1).toString());
+  // List<String> years = List.generate(100, (index) => (DateTime.now().year - index).toString());
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -28,7 +36,11 @@ class _AccountAboutPage extends State<AccountSetupAboutPage> {
         home: Scaffold(
             backgroundColor: ColourPalette.white,
             appBar: AppBar(
-              leading: BackButton(),
+              leading: BackButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
               scrolledUnderElevation: 0,
               elevation: 0,
               backgroundColor: ColourPalette.white,
@@ -109,6 +121,21 @@ class _AccountAboutPage extends State<AccountSetupAboutPage> {
                                             shadowColor: ColourPalette.gray,
                                             borderRadius:
                                                 BorderRadius.circular(8),
+                                            // child: DropdownButtonFormField(
+                                            //   value: selectedDay,
+                                            //   hint: Text("DD"),
+                                            //   items: days.map((String day) {
+                                            //     return DropdownMenuItem(
+                                            //       value: day,
+                                            //       child: Text(day),
+                                            //     );
+                                            //   }).toList(),
+                                            //   onChanged: (value) {
+                                            //     setState(() {
+                                            //       selectedDay = value!;
+                                            //     });
+                                            //   },
+                                            // )
                                             // child: DropdownButtonFormField<
                                             //     String>(
                                             //   value: selectedValue,
@@ -123,32 +150,32 @@ class _AccountAboutPage extends State<AccountSetupAboutPage> {
                                             //   },
                                             //   items: optionList.map<DropdownMenuItem
                                             // )
-                                            // TextFormField(
-                                            //     decoration: const InputDecoration(
-                                            //         filled: true,
-                                            //         fillColor:
-                                            //             ColourPalette.white,
-                                            //         floatingLabelBehavior:
-                                            //             FloatingLabelBehavior
-                                            //                 .never,
-                                            //         labelText: "Enter name",
-                                            //         labelStyle: TextStyle(
-                                            //             fontFamily: 'Inter',
-                                            //             fontSize: 12,
-                                            //             color: ColourPalette
-                                            //                 .lightgrayText),
-                                            //         border: OutlineInputBorder(
-                                            //             borderRadius:
-                                            //                 BorderRadius.all(
-                                            //                     Radius.circular(
-                                            //                         5)),
-                                            //             borderSide:
-                                            //                 BorderSide.none)),
-                                            //     style: TextStyle(
-                                            //         fontFamily: 'Inter',
-                                            //         fontSize: 12,
-                                            //         color:
-                                            //             ColourPalette.black)),
+                                            child: TextFormField(
+                                                decoration: const InputDecoration(
+                                                    filled: true,
+                                                    fillColor:
+                                                        ColourPalette.white,
+                                                    floatingLabelBehavior:
+                                                        FloatingLabelBehavior
+                                                            .never,
+                                                    labelText: "Enter name",
+                                                    labelStyle: TextStyle(
+                                                        fontFamily: 'Inter',
+                                                        fontSize: 12,
+                                                        color: ColourPalette
+                                                            .lightgrayText),
+                                                    border: OutlineInputBorder(
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius.circular(
+                                                                    5)),
+                                                        borderSide:
+                                                            BorderSide.none)),
+                                                style: TextStyle(
+                                                    fontFamily: 'Inter',
+                                                    fontSize: 12,
+                                                    color:
+                                                        ColourPalette.black)),
                                           ),
                                         )
                                       ]),
@@ -229,7 +256,13 @@ class _AccountAboutPage extends State<AccountSetupAboutPage> {
                             SizedBox(
                               width: 200,
                               child: TextButton(
-                                onPressed: () {}, //TODO add navigation
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              AccountSetupConsentPage()));
+                                },
                                 style: TextButton.styleFrom(
                                   backgroundColor: ColourPalette.purple,
                                   shape: RoundedRectangleBorder(

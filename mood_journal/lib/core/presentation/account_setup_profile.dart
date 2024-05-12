@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:datepicker_dropdown/datepicker_dropdown.dart';
+import 'package:mood_journal/core/presentation/home_page.dart';
 import 'package:mood_journal/core/ui_features/colour_palette.dart';
 // import 'package:provider/provider.dart';
 import 'dart:ui' show lerpDouble;
@@ -28,7 +29,11 @@ class _AccountProfilePage extends State<AccountSetupProfilePage> {
         home: Scaffold(
             backgroundColor: ColourPalette.white,
             appBar: AppBar(
-              leading: BackButton(),
+              leading: BackButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
               scrolledUnderElevation: 0,
               elevation: 0,
               backgroundColor: ColourPalette.white,
@@ -85,22 +90,64 @@ class _AccountProfilePage extends State<AccountSetupProfilePage> {
                             ),
                             SvgPicture.asset(Images.addIcon),
                             SizedBox(height: 50),
-                            SizedBox(
-                              width: 200,
-                              child: TextButton(
-                                onPressed: () {}, //TODO add navigation
-                                style: TextButton.styleFrom(
-                                  backgroundColor: ColourPalette.purple,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(8),
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(40, 0, 40, 0),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  SizedBox(
+                                    width: 104,
+                                    child: TextButton(
+                                      onPressed: () {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    HomePage()));
+                                      },
+                                      style: TextButton.styleFrom(
+                                        backgroundColor: ColourPalette.purple,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(8),
+                                        ),
+                                      ),
+                                      child: const Text(
+                                        "Save",
+                                        style: TextStyle(
+                                            color: ColourPalette.white,
+                                            fontWeight: FontWeight.w400),
+                                      ),
+                                    ),
                                   ),
-                                ),
-                                child: const Text(
-                                  "I Consent",
-                                  style: TextStyle(
-                                      color: ColourPalette.white,
-                                      fontWeight: FontWeight.w400),
-                                ),
+                                  SizedBox(
+                                    width: 104,
+                                    child: TextButton(
+                                      onPressed: () {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    HomePage()));
+                                      },
+                                      style: TextButton.styleFrom(
+                                        backgroundColor: ColourPalette.white,
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(8),
+                                            side: BorderSide(
+                                                color: ColourPalette.black)),
+                                      ),
+                                      child: const Text(
+                                        "Skip",
+                                        style: TextStyle(
+                                            color: ColourPalette.black,
+                                            fontWeight: FontWeight.w400),
+                                      ),
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                             SizedBox(height: 50),

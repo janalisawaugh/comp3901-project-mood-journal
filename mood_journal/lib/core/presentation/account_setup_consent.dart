@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+//import 'package:flutter_svg/flutter_svg.dart';
 import 'package:datepicker_dropdown/datepicker_dropdown.dart';
+import 'package:mood_journal/core/presentation/account_setup_profile.dart';
 import 'package:mood_journal/core/ui_features/colour_palette.dart';
 // import 'package:provider/provider.dart';
-import 'dart:ui' show lerpDouble;
+//import 'dart:ui' show lerpDouble;
 
 import 'package:mood_journal/core/ui_features/images.dart';
 
 // import 'package:flutter_riverpod/flutter_riverpod.dart';
 // import 'package:flutter_svg/flutter_svg.dart';
-
-void main() {
-  runApp(AccountSetupConsentPage());
-}
 
 class AccountSetupConsentPage extends StatefulWidget {
   @override
@@ -28,7 +25,11 @@ class _AccountConsentPage extends State<AccountSetupConsentPage> {
         home: Scaffold(
             backgroundColor: ColourPalette.white,
             appBar: AppBar(
-              leading: BackButton(),
+              leading: BackButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
               scrolledUnderElevation: 0,
               elevation: 0,
               backgroundColor: ColourPalette.white,
@@ -86,7 +87,13 @@ class _AccountConsentPage extends State<AccountSetupConsentPage> {
                             SizedBox(
                               width: 200,
                               child: TextButton(
-                                onPressed: () {}, //TODO add navigation
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              AccountSetupProfilePage()));
+                                },
                                 style: TextButton.styleFrom(
                                   backgroundColor: ColourPalette.purple,
                                   shape: RoundedRectangleBorder(
@@ -94,7 +101,7 @@ class _AccountConsentPage extends State<AccountSetupConsentPage> {
                                   ),
                                 ),
                                 child: const Text(
-                                  "I Consent",
+                                  "Save",
                                   style: TextStyle(
                                       color: ColourPalette.white,
                                       fontWeight: FontWeight.w400),
