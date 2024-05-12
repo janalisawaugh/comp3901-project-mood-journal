@@ -12,4 +12,5 @@ abstract class ColourPalette {
   static const Color white = Color.fromRGBO(249, 248, 248, 1);
   static const Color grayText = Color.fromRGBO(185, 184, 184, 1);
   static const Color lightgrayText = Color.fromRGBO(201, 198, 198, 1);
+  static const Color purpleNameText = Color.fromRGBO(88, 47, 255, 1);
 }

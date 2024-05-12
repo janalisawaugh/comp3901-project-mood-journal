@@ -33,4 +33,8 @@ class Images {
   static const String profilePicture = 'assets/images/profilepic.png';
   static const String recommendationIcon =
       'assets/images/recommendationstaricon.png';
+  static const String backgroundLogo = 'assets/images/backgroundlogo.png';
+  static const String writeButtonIcon = 'assets/images/writebuttonicon.png';
+  static const String recommendationButtonIcon =
+      'assets/images/recommendationbuttonicon.png';
 }

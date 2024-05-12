@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 //import 'package:flutter_svg/flutter_svg.dart';
@@ -176,13 +177,28 @@ class _SignInPage extends State<SignInPage> {
                             ),
                           ),
                           SizedBox(height: 50),
-                          const Text(
-                              "Don't have an account? Create an account", //TODO push further to the bottom, change the colour of create account and make it a text button
-                              style: TextStyle(
-                                  color: ColourPalette.grayText,
-                                  fontFamily: 'Inter',
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w400))
+                          RichText(
+                              text: TextSpan(children: [
+                            TextSpan(
+                                text: "Don't have an account? ",
+                                style: TextStyle(
+                                    color: ColourPalette.grayText,
+                                    fontFamily: 'Inter',
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w400)),
+                            TextSpan(
+                                text: "Create an account ",
+                                style: TextStyle(
+                                    color: ColourPalette.aquamarine,
+                                    fontFamily: 'Inter',
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w400),
+                                recognizer: TapGestureRecognizer()
+                                  ..onTap = () => Navigator.of(context).push(
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              AccountSetupInfoPage()))),
+                          ]))
                         ])))));
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:mood_journal/core/presentation/account_setup_consent.dart';
+import 'package:mood_journal/core/presentation/analytics_page.dart';
 import 'package:mood_journal/core/presentation/journal_entry_page.dart';
 import 'package:mood_journal/core/presentation/login_page.dart';
 import 'package:mood_journal/core/presentation/sign_in_page.dart';
@@ -30,7 +31,7 @@ class _HomePage extends State<HomePage> {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         home: Scaffold(
-          backgroundColor: ColourPalette.white,
+          //backgroundColor: ColourPalette.white,
           appBar: AppBar(
             leading: BackButton(
               onPressed: () {
@@ -42,95 +43,225 @@ class _HomePage extends State<HomePage> {
             backgroundColor: ColourPalette.white,
           ),
           body: SingleChildScrollView(
-            child: Center(
-                child: Container(
-                    margin: const EdgeInsets.all(15.0),
-                    child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        mainAxisSize: MainAxisSize.max,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          SizedBox(
-                              width: double.infinity,
-                              child: Text(
-                                "H O M E",
-                                textAlign: TextAlign.center,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .displaySmall
-                                    ?.copyWith(
-                                        fontFamily: 'Inter',
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.normal,
-                                        color: ColourPalette.purple),
-                              )),
-                          SizedBox(height: 30),
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(35, 10, 35, 10),
-                            child: Row(
-                              //for date and add and delete buttons
-                              children: [
-                                Text(
-                                  "2 N D  D E C.  2 0 2 3",
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage(Images.backgroundLogo),
+                      fit: BoxFit.cover)),
+              child: Center(
+                  child: Container(
+                      margin: const EdgeInsets.all(15.0),
+                      child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          mainAxisSize: MainAxisSize.max,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            SizedBox(
+                                width: double.infinity,
+                                child: Text(
+                                  "H O M E",
                                   textAlign: TextAlign.center,
                                   style: Theme.of(context)
                                       .textTheme
                                       .displaySmall
                                       ?.copyWith(
                                           fontFamily: 'Inter',
-                                          fontSize: 12,
+                                          fontSize: 20,
                                           fontWeight: FontWeight.normal,
-                                          color: ColourPalette.darkPurple),
-                                )
-                              ],
-                            ),
-                          ),
-                          SizedBox(
-                            //text field for journal entry
-                            height: 443,
-                            width: 317,
-                            child: TextFormField(
-                                keyboardType: TextInputType.multiline,
-                                maxLines: null,
-                                decoration: const InputDecoration(
-                                    filled: true,
-                                    fillColor: ColourPalette.white,
-                                    floatingLabelBehavior:
-                                        FloatingLabelBehavior.never,
-                                    labelText: "I feel like...",
-                                    labelStyle: TextStyle(
+                                          color: ColourPalette.purple),
+                                )),
+                            SizedBox(height: 30),
+                            Padding(
+                                padding:
+                                    const EdgeInsets.fromLTRB(35, 10, 35, 10),
+                                child: RichText(
+                                    text: const TextSpan(children: [
+                                  TextSpan(
+                                      text: "Welcome, ",
+                                      style: TextStyle(
+                                          color: ColourPalette.black,
+                                          fontFamily: 'Inter',
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.w400)),
+                                  TextSpan(
+                                    text: "F I R S T  N A M E ",
+                                    style: TextStyle(
+                                        color: ColourPalette.purpleNameText,
                                         fontFamily: 'Inter',
-                                        fontSize: 12,
-                                        color: ColourPalette.lightgrayText),
-                                    border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(5)))),
-                                style: TextStyle(
-                                    fontFamily: 'Inter',
-                                    fontSize: 12,
-                                    color: ColourPalette.black)),
-                          ),
-                          SizedBox(height: 50),
-                          SizedBox(
-                            width: 200,
-                            child: TextButton(
-                              onPressed: () {}, //TODO add navigation
-                              style: TextButton.styleFrom(
-                                backgroundColor: ColourPalette.purple,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8),
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.w400),
+                                  )
+                                ]))),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.fromLTRB(50, 25, 50, 25),
+                              child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    SizedBox(
+                                        height: 97,
+                                        width: 107,
+                                        child: Material(
+                                            elevation: 8,
+                                            shadowColor: ColourPalette.gray,
+                                            borderRadius:
+                                                BorderRadius.circular(5),
+                                            child: Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
+                                              children: [
+                                                Text(
+                                                  "S T R E A K S",
+                                                  textAlign: TextAlign.center,
+                                                  style: TextStyle(
+                                                      color:
+                                                          ColourPalette.purple,
+                                                      fontFamily: 'Inter',
+                                                      fontSize: 15,
+                                                      fontWeight:
+                                                          FontWeight.w400),
+                                                ),
+                                                Text(
+                                                  "3 1",
+                                                  textAlign: TextAlign.center,
+                                                  style: TextStyle(
+                                                      color: ColourPalette
+                                                          .darkPurple,
+                                                      fontFamily: 'Inter',
+                                                      fontSize: 16,
+                                                      fontWeight:
+                                                          FontWeight.w400),
+                                                )
+                                              ],
+                                            ))),
+                                    SizedBox(
+                                        height: 97,
+                                        width: 107,
+                                        child: Material(
+                                            elevation: 8,
+                                            shadowColor: ColourPalette.gray,
+                                            borderRadius:
+                                                BorderRadius.circular(5),
+                                            child: Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
+                                              children: [
+                                                Text(
+                                                  "J O U R N A L  E N T R I E S",
+                                                  textAlign: TextAlign.center,
+                                                  style: TextStyle(
+                                                      color:
+                                                          ColourPalette.purple,
+                                                      fontFamily: 'Inter',
+                                                      fontSize: 15,
+                                                      fontWeight:
+                                                          FontWeight.w400),
+                                                ),
+                                                Text(
+                                                  "3 0",
+                                                  textAlign: TextAlign.center,
+                                                  style: TextStyle(
+                                                      color: ColourPalette
+                                                          .darkPurple,
+                                                      fontFamily: 'Inter',
+                                                      fontSize: 16,
+                                                      fontWeight:
+                                                          FontWeight.w400),
+                                                )
+                                              ],
+                                            )))
+                                  ]),
+                            ),
+                            SizedBox(height: 150),
+                            SizedBox(
+                              height: 49,
+                              width: 298,
+                              child: Directionality(
+                                textDirection: TextDirection.rtl,
+                                child: TextButton.icon(
+                                  onPressed: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                JournalEntryPage()));
+                                  }, //TODO add navigation
+                                  style: TextButton.styleFrom(
+                                    backgroundColor: ColourPalette.purple,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(8),
+                                    ),
+                                  ),
+                                  label: Text(
+                                    "...How are you feeling today? Talk about it",
+                                    style: TextStyle(
+                                        color: ColourPalette.white,
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 12),
+                                  ),
+                                  icon: ImageIcon(
+                                      AssetImage(Images.writeButtonIcon),
+                                      color: ColourPalette.white),
                                 ),
                               ),
-                              child: const Text(
-                                "Finished",
-                                style: TextStyle(
-                                    color: ColourPalette.white,
-                                    fontWeight: FontWeight.w400),
+                            ),
+                            SizedBox(height: 15),
+                            SizedBox(
+                              height: 49,
+                              width: 298,
+                              child: Directionality(
+                                textDirection: TextDirection.rtl,
+                                child: TextButton.icon(
+                                  onPressed: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                AnalyticsPage()));
+                                  },
+                                  style: TextButton.styleFrom(
+                                    backgroundColor: ColourPalette.purple,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(8),
+                                    ),
+                                  ),
+                                  label: RichText(
+                                      textAlign: TextAlign.center,
+                                      //maxLines: 1,
+                                      //overflow: TextOverflow.clip,
+                                      text: const TextSpan(children: [
+                                        TextSpan(
+                                            text: "F I R S T  N A M E",
+                                            style: TextStyle(
+                                                color: ColourPalette.white,
+                                                fontFamily: 'Inter',
+                                                fontSize: 12,
+                                                fontWeight: FontWeight.w400)),
+                                        TextSpan(
+                                          text:
+                                              ", we have recommendations for you",
+                                          style: TextStyle(
+                                              color: ColourPalette.white,
+                                              fontFamily: 'Inter',
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.w400),
+                                        )
+                                      ])),
+                                  icon: ImageIcon(
+                                      AssetImage(
+                                          Images.recommendationButtonIcon),
+                                      color: ColourPalette.white),
+                                ),
                               ),
                             ),
-                          ),
-                          SizedBox(height: 50),
-                        ]))),
+                            SizedBox(height: 50),
+                          ]))),
+            ),
           ),
           bottomNavigationBar: BottomNavigationBar(
             currentIndex: _currentIndex,

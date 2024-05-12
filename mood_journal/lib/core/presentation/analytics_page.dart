@@ -1,23 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+//import 'package:flutter_svg/flutter_svg.dart';
 import 'package:datepicker_dropdown/datepicker_dropdown.dart';
-import 'package:flutter_svg/svg.dart';
+//import 'package:flutter_svg/svg.dart';
 import 'package:mood_journal/core/presentation/account_setup_consent.dart';
 import 'package:mood_journal/core/presentation/login_page.dart';
 import 'package:mood_journal/core/presentation/sign_in_page.dart';
 import 'package:mood_journal/core/ui_features/colour_palette.dart';
 // import 'package:provider/provider.dart';
-import 'dart:ui' show lerpDouble;
+//import 'dart:ui' show lerpDouble;
 
 import 'package:mood_journal/core/ui_features/images.dart';
 
 // import 'package:flutter_riverpod/flutter_riverpod.dart';
 // import 'package:flutter_svg/flutter_svg.dart';
-
-void main() {
-  runApp(AnalyticsPage());
-}
 
 class AnalyticsPage extends StatefulWidget {
   @override
