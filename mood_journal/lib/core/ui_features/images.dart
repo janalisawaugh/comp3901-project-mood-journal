@@ -37,4 +37,10 @@ class Images {
   static const String writeButtonIcon = 'assets/images/writebuttonicon.png';
   static const String recommendationButtonIcon =
       'assets/images/recommendationbuttonicon.png';
+  static const String rainy = 'assets/images/rainy.png';
+  static const String cloudy = 'assets/images/cloudy.png';
+  static const String partlycloudy = 'assets/images/partlycloudy.png';
+  static const String sunny = 'assets/images/sunny.png';
+  static const String windy = 'assets/images/windy.png';
+  static const String thunderstorm = 'assets/images/thunderstorm.png';
 }

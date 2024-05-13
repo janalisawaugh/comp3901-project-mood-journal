@@ -4,6 +4,7 @@ abstract class ColourPalette {
   static const Color indigo = Color.fromRGBO(36, 18, 73, 1);
   static const Color darkPurple = Color.fromRGBO(7, 13, 154, 1);
   static const Color lightPurple = Color.fromRGBO(138, 143, 255, 1);
+  static const Color brightPurple = Color.fromRGBO(151, 71, 255, 1);
   static const Color purple = Color.fromRGBO(109, 47, 240, 1);
   static const Color aquamarine = Color.fromRGBO(80, 216, 208, 1);
   static const Color lavender = Color.fromRGBO(162, 139, 210, 1);

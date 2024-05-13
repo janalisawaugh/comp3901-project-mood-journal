@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:mood_journal/core/presentation/account_setup_consent.dart';
 import 'package:mood_journal/core/presentation/analytics_page.dart';
+import 'package:mood_journal/core/presentation/journal_entries_monthly_page.dart';
+import 'package:mood_journal/core/presentation/journal_entries_page.dart';
 import 'package:mood_journal/core/presentation/journal_entry_page.dart';
 import 'package:mood_journal/core/presentation/login_page.dart';
 import 'package:mood_journal/core/presentation/sign_in_page.dart';
@@ -189,7 +191,7 @@ class _HomePage extends State<HomePage> {
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) =>
-                                                JournalEntryPage()));
+                                                JournalEntriesPage()));
                                   }, //TODO add navigation
                                   style: TextButton.styleFrom(
                                     backgroundColor: ColourPalette.purple,

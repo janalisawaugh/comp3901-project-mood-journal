@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/widgets.dart';
+import 'package:intl/intl.dart';
 
 import 'package:mood_journal/core/presentation/account_setup_consent.dart';
 import 'package:mood_journal/core/presentation/login_page.dart';
@@ -7,11 +9,11 @@ import 'package:mood_journal/core/presentation/sign_in_page.dart';
 import 'package:mood_journal/core/ui_features/colour_palette.dart';
 
 import 'package:mood_journal/core/ui_features/images.dart';
-
-// import 'package:flutter_riverpod/flutter_riverpod.dart';
-// import 'package:flutter_svg/flutter_svg.dart';
+import 'package:syncfusion_flutter_calendar/calendar.dart';
 
 class JournalEntriesMonthlyPage extends StatefulWidget {
+  JournalEntriesMonthlyPage({required this.month});
+  String? month;
   @override
   State<JournalEntriesMonthlyPage> createState() =>
       _JournalEntriesMonthlyPage();
@@ -24,7 +26,19 @@ class _JournalEntriesMonthlyPage extends State<JournalEntriesMonthlyPage> {
     LoginPage(),
     AccountSetupConsentPage(),
   ];
+  String? _receivedMonth = '';
+  String stringMonth = '';
+  String journalEntryDate = '22ND MARCH 2024';
+  String entryTitle = 'TITLE OF JOURNAL ENTRY';
+  String weatherImage = Images.sunny;
+  @override
+  void initState() {
+    super.initState();
+    _receivedMonth = widget.month;
+    stringMonth = _receivedMonth.toString();
+  }
 
+  //String? thisMonth;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -53,7 +67,7 @@ class _JournalEntriesMonthlyPage extends State<JournalEntriesMonthlyPage> {
                           SizedBox(
                               width: double.infinity,
                               child: Text(
-                                "J O U R N A L  E N T R Y",
+                                "J O U R N A L  E N T R I E S",
                                 textAlign: TextAlign.center,
                                 style: Theme.of(context)
                                     .textTheme
@@ -64,76 +78,181 @@ class _JournalEntriesMonthlyPage extends State<JournalEntriesMonthlyPage> {
                                         fontWeight: FontWeight.normal,
                                         color: ColourPalette.purple),
                               )),
-                          SizedBox(height: 15),
-                          SizedBox(
-                            //text field for entry title
-                            height: 28,
-                            width: 308,
-                            child: TextFormField(
-                                decoration: const InputDecoration(
-                                    filled: true,
-                                    fillColor: ColourPalette.white,
-                                    floatingLabelBehavior:
-                                        FloatingLabelBehavior.never,
-                                    labelText: "Give this entry a title..",
-                                    labelStyle: TextStyle(
-                                        fontFamily: 'Inter',
-                                        fontSize: 12,
-                                        color: ColourPalette.lightgrayText),
-                                    border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(5)))),
-                                style: TextStyle(
-                                    fontFamily: 'Inter',
-                                    fontSize: 12,
-                                    color: ColourPalette.lightgrayText)),
-                          ),
+                          SizedBox(height: 40),
                           SizedBox(height: 20),
                           Padding(
                             padding: const EdgeInsets.fromLTRB(35, 10, 35, 10),
-                            child: Row(
-                              //for date and add and delete buttons
-                              children: [
-                                Text(
-                                  "2 N D  D E C.  2 0 2 3",
-                                  textAlign: TextAlign.left,
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .displaySmall
-                                      ?.copyWith(
-                                          fontFamily: 'Inter',
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.normal,
-                                          color: ColourPalette.darkPurple),
-                                )
-                              ],
+                            child: Text(
+                              stringMonth.toUpperCase(),
+                              textAlign: TextAlign.left,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .displaySmall
+                                  ?.copyWith(
+                                      fontFamily: 'Inter',
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.normal,
+                                      color: ColourPalette.darkPurple),
                             ),
                           ),
                           SizedBox(
-                            //text field for journal entry
-                            height: 443,
-                            width: 317,
-                            child: TextFormField(
-                                keyboardType: TextInputType.multiline,
-                                maxLines: null,
-                                decoration: const InputDecoration(
-                                    filled: true,
-                                    fillColor: ColourPalette.white,
-                                    floatingLabelBehavior:
-                                        FloatingLabelBehavior.never,
-                                    labelText: "I feel like...",
-                                    labelStyle: TextStyle(
-                                        fontFamily: 'Inter',
-                                        fontSize: 12,
-                                        color: ColourPalette.lightgrayText),
-                                    border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(5)))),
-                                style: TextStyle(
-                                    fontFamily: 'Inter',
-                                    fontSize: 12,
-                                    color: ColourPalette.black)),
+                            height: 30,
                           ),
+                          SizedBox(
+                              height: 93,
+                              width: 323,
+                              child: Material(
+                                  elevation: 8,
+                                  color: ColourPalette.brightPurple,
+                                  shadowColor: ColourPalette.gray,
+                                  borderRadius: BorderRadius.circular(5),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(15.0),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          journalEntryDate,
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                              color: ColourPalette.white,
+                                              fontFamily: 'Inter',
+                                              fontSize: 10,
+                                              fontWeight: FontWeight.w400),
+                                        ),
+                                        SizedBox(height: 10),
+                                        Text(
+                                          entryTitle,
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                              color: ColourPalette.white,
+                                              fontFamily: 'white',
+                                              fontSize: 15,
+                                              fontWeight: FontWeight.w400),
+                                        )
+                                      ],
+                                    ),
+                                  ))),
+                          SizedBox(height: 20),
+                          SizedBox(
+                              height: 93,
+                              width: 323,
+                              child: Material(
+                                  elevation: 8,
+                                  color: ColourPalette.purple,
+                                  shadowColor: ColourPalette.gray,
+                                  borderRadius: BorderRadius.circular(5),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(15.0),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          journalEntryDate,
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                              color: ColourPalette.white,
+                                              fontFamily: 'Inter',
+                                              fontSize: 10,
+                                              fontWeight: FontWeight.w400),
+                                        ),
+                                        SizedBox(height: 10),
+                                        Text(
+                                          entryTitle,
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                              color: ColourPalette.white,
+                                              fontFamily: 'white',
+                                              fontSize: 15,
+                                              fontWeight: FontWeight.w400),
+                                        )
+                                      ],
+                                    ),
+                                  ))),
+                          SizedBox(height: 20),
+                          SizedBox(
+                              height: 93,
+                              width: 323,
+                              child: Material(
+                                  elevation: 8,
+                                  color: ColourPalette.darkPurple,
+                                  shadowColor: ColourPalette.gray,
+                                  borderRadius: BorderRadius.circular(5),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(15.0),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          journalEntryDate,
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                              color: ColourPalette.white,
+                                              fontFamily: 'Inter',
+                                              fontSize: 10,
+                                              fontWeight: FontWeight.w400),
+                                        ),
+                                        SizedBox(height: 10),
+                                        Text(
+                                          entryTitle,
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                              color: ColourPalette.white,
+                                              fontFamily: 'white',
+                                              fontSize: 15,
+                                              fontWeight: FontWeight.w400),
+                                        )
+                                      ],
+                                    ),
+                                  ))),
+                          SizedBox(height: 20),
+                          SizedBox(
+                              height: 93,
+                              width: 323,
+                              child: Material(
+                                  elevation: 8,
+                                  color: ColourPalette.indigo,
+                                  shadowColor: ColourPalette.gray,
+                                  borderRadius: BorderRadius.circular(5),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(15.0),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          journalEntryDate,
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                              color: ColourPalette.white,
+                                              fontFamily: 'Inter',
+                                              fontSize: 10,
+                                              fontWeight: FontWeight.w400),
+                                        ),
+                                        SizedBox(height: 10),
+                                        Text(
+                                          entryTitle,
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                              color: ColourPalette.white,
+                                              fontFamily: 'white',
+                                              fontSize: 15,
+                                              fontWeight: FontWeight.w400),
+                                        )
+                                      ],
+                                    ),
+                                  ))),
                           SizedBox(height: 50),
                           SizedBox(
                             width: 200,
