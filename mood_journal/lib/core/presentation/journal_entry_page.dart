@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:mood_journal/core/presentation/account_setup_consent.dart';
+import 'package:mood_journal/core/presentation/journal_entries_page.dart';
 import 'package:mood_journal/core/presentation/login_page.dart';
 import 'package:mood_journal/core/presentation/sign_in_page.dart';
 import 'package:mood_journal/core/ui_features/colour_palette.dart';
@@ -11,17 +12,21 @@ import 'package:mood_journal/core/ui_features/images.dart';
 // import 'package:flutter_svg/flutter_svg.dart';
 
 class JournalEntryPage extends StatefulWidget {
+  JournalEntryPage({required displayDate});
+  String? displayDate;
   @override
   State<JournalEntryPage> createState() => _JournalEntryPage();
 }
 
 class _JournalEntryPage extends State<JournalEntryPage> {
-  int _currentIndex = 0;
-  final List<Widget> _screens = [
-    SignInPage(),
-    LoginPage(),
-    AccountSetupConsentPage(),
-  ];
+  String? _receivedDate = '';
+  String stringDate = DateTime.now().toString();
+  @override
+  void initState() {
+    super.initState();
+    _receivedDate = widget.displayDate;
+    stringDate = _receivedDate.toString();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -84,7 +89,7 @@ class _JournalEntryPage extends State<JournalEntryPage> {
                                 style: TextStyle(
                                     fontFamily: 'Inter',
                                     fontSize: 12,
-                                    color: ColourPalette.lightgrayText)),
+                                    color: ColourPalette.black)),
                           ),
                           SizedBox(height: 20),
                           Padding(
@@ -93,7 +98,8 @@ class _JournalEntryPage extends State<JournalEntryPage> {
                               //for date and add and delete buttons
                               children: [
                                 Text(
-                                  "2 N D  D E C.  2 0 2 3",
+                                  // TODO Fix the passing of the date to variable stringDate,
+                                  "MAY 13, 2024",
                                   textAlign: TextAlign.left,
                                   style: Theme.of(context)
                                       .textTheme
@@ -136,7 +142,13 @@ class _JournalEntryPage extends State<JournalEntryPage> {
                           SizedBox(
                             width: 200,
                             child: TextButton(
-                              onPressed: () {}, //TODO add navigation
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            JournalEntriesPage()));
+                              }, //TODO add navigation
                               style: TextButton.styleFrom(
                                 backgroundColor: ColourPalette.purple,
                                 shape: RoundedRectangleBorder(
@@ -153,32 +165,6 @@ class _JournalEntryPage extends State<JournalEntryPage> {
                           ),
                           SizedBox(height: 50),
                         ]))),
-          ),
-          bottomNavigationBar: BottomNavigationBar(
-            currentIndex: _currentIndex,
-            onTap: (index) {
-              setState(() {
-                _currentIndex = index;
-              });
-            },
-            items: const [
-              BottomNavigationBarItem(
-                  icon: ImageIcon(AssetImage(Images.homeIcon),
-                      color: ColourPalette.black, size: 20),
-                  label: 'Home'),
-              BottomNavigationBarItem(
-                  icon: ImageIcon(AssetImage(Images.journalIcon),
-                      color: ColourPalette.black, size: 20),
-                  label: 'Journal'),
-              BottomNavigationBarItem(
-                  icon: ImageIcon(AssetImage(Images.graphIcon),
-                      color: ColourPalette.black, size: 20),
-                  label: 'Analytics'),
-              BottomNavigationBarItem(
-                  icon: ImageIcon(AssetImage(Images.profileIcon),
-                      color: ColourPalette.black, size: 20),
-                  label: 'Account'),
-            ],
           ),
         ));
   }

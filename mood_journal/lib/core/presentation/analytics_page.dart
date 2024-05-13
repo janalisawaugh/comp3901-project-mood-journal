@@ -4,7 +4,9 @@ import 'package:flutter/widgets.dart';
 import 'package:datepicker_dropdown/datepicker_dropdown.dart';
 //import 'package:flutter_svg/svg.dart';
 import 'package:mood_journal/core/presentation/account_setup_consent.dart';
+import 'package:mood_journal/core/presentation/charts_page.dart';
 import 'package:mood_journal/core/presentation/login_page.dart';
+import 'package:mood_journal/core/presentation/reports_page.dart';
 import 'package:mood_journal/core/presentation/sign_in_page.dart';
 import 'package:mood_journal/core/ui_features/colour_palette.dart';
 // import 'package:provider/provider.dart';
@@ -21,13 +23,6 @@ class AnalyticsPage extends StatefulWidget {
 }
 
 class _AnalyticsPage extends State<AnalyticsPage> {
-  int _currentIndex = 0;
-  final List<Widget> _screens = [
-    SignInPage(),
-    LoginPage(),
-    AccountSetupConsentPage(),
-  ];
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -102,13 +97,15 @@ class _AnalyticsPage extends State<AnalyticsPage> {
                               children: [
                                 Image.asset(Images.recommendationIcon),
                                 SizedBox(width: 15),
-                                Text(
-                                  "Have fun",
-                                  style: TextStyle(
-                                      fontFamily: 'Inter',
-                                      fontSize: 17,
-                                      color: ColourPalette.black,
-                                      fontWeight: FontWeight.w400),
+                                Expanded(
+                                  child: Text(
+                                    "Do activities you enjoy",
+                                    style: TextStyle(
+                                        fontFamily: 'Inter',
+                                        fontSize: 17,
+                                        color: ColourPalette.black,
+                                        fontWeight: FontWeight.w400),
+                                  ),
                                 ),
                               ],
                             ),
@@ -119,13 +116,15 @@ class _AnalyticsPage extends State<AnalyticsPage> {
                               children: [
                                 Image.asset(Images.recommendationIcon),
                                 SizedBox(width: 15),
-                                Text(
-                                  "Get money",
-                                  style: TextStyle(
-                                      fontFamily: 'Inter',
-                                      fontSize: 17,
-                                      color: ColourPalette.black,
-                                      fontWeight: FontWeight.w400),
+                                Expanded(
+                                  child: Text(
+                                    "Connect with loved ones and lean on them for support",
+                                    style: TextStyle(
+                                        fontFamily: 'Inter',
+                                        fontSize: 17,
+                                        color: ColourPalette.black,
+                                        fontWeight: FontWeight.w400),
+                                  ),
                                 ),
                               ],
                             ),
@@ -136,13 +135,15 @@ class _AnalyticsPage extends State<AnalyticsPage> {
                               children: [
                                 Image.asset(Images.recommendationIcon),
                                 SizedBox(width: 15),
-                                Text(
-                                  "Skip school",
-                                  style: TextStyle(
-                                      fontFamily: 'Inter',
-                                      fontSize: 17,
-                                      color: ColourPalette.black,
-                                      fontWeight: FontWeight.w400),
+                                Expanded(
+                                  child: Text(
+                                    "Take breaks when you get overwhelmed, you need rest",
+                                    style: TextStyle(
+                                        fontFamily: 'Inter',
+                                        fontSize: 17,
+                                        color: ColourPalette.black,
+                                        fontWeight: FontWeight.w400),
+                                  ),
                                 ),
                               ],
                             ),
@@ -162,7 +163,12 @@ class _AnalyticsPage extends State<AnalyticsPage> {
                           SizedBox(
                             width: 200,
                             child: TextButton(
-                              onPressed: () {}, //TODO add navigation
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => ReportsPage()));
+                              }, //TODO add navigation
                               style: TextButton.styleFrom(
                                 backgroundColor: ColourPalette.purple,
                                 shape: RoundedRectangleBorder(
@@ -180,7 +186,12 @@ class _AnalyticsPage extends State<AnalyticsPage> {
                           SizedBox(
                             width: 200,
                             child: TextButton(
-                              onPressed: () {}, //TODO add navigation
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => ChartsPage()));
+                              }, //TODO add navigation
                               style: TextButton.styleFrom(
                                 backgroundColor: ColourPalette.white,
                                 shape: RoundedRectangleBorder(
@@ -198,32 +209,6 @@ class _AnalyticsPage extends State<AnalyticsPage> {
                           ),
                           SizedBox(height: 50),
                         ]))),
-          ),
-          bottomNavigationBar: BottomNavigationBar(
-            currentIndex: _currentIndex,
-            onTap: (index) {
-              setState(() {
-                _currentIndex = index;
-              });
-            },
-            items: const [
-              BottomNavigationBarItem(
-                  icon: ImageIcon(AssetImage(Images.homeIcon),
-                      color: ColourPalette.black, size: 20),
-                  label: 'Home'),
-              BottomNavigationBarItem(
-                  icon: ImageIcon(AssetImage(Images.journalIcon),
-                      color: ColourPalette.black, size: 20),
-                  label: 'Journal'),
-              BottomNavigationBarItem(
-                  icon: ImageIcon(AssetImage(Images.graphIcon),
-                      color: ColourPalette.black, size: 20),
-                  label: 'Analytics'),
-              BottomNavigationBarItem(
-                  icon: ImageIcon(AssetImage(Images.profileIcon),
-                      color: ColourPalette.black, size: 20),
-                  label: 'Account'),
-            ],
           ),
         ));
   }

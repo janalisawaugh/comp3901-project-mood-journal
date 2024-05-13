@@ -43,4 +43,5 @@ class Images {
   static const String sunny = 'assets/images/sunny.png';
   static const String windy = 'assets/images/windy.png';
   static const String thunderstorm = 'assets/images/thunderstorm.png';
+  static const String sampleChart = 'assets/images/samplechart.png';
 }

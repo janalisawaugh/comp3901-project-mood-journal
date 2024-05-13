@@ -1,91 +1,109 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+//import 'package:flutter_svg/flutter_svg.dart';
+import 'package:datepicker_dropdown/datepicker_dropdown.dart';
+//import 'package:flutter_svg/svg.dart';
+import 'package:mood_journal/core/presentation/account_setup_consent.dart';
+import 'package:mood_journal/core/presentation/login_page.dart';
+import 'package:mood_journal/core/presentation/sign_in_page.dart';
+import 'package:mood_journal/core/ui_features/colour_palette.dart';
+// import 'package:provider/provider.dart';
+//import 'dart:ui' show lerpDouble;
 
-void main() {
-  runApp(MyApp());
+import 'package:mood_journal/core/ui_features/images.dart';
+
+// import 'package:flutter_riverpod/flutter_riverpod.dart';
+// import 'package:flutter_svg/flutter_svg.dart';
+
+class ReportsPage extends StatefulWidget {
+  @override
+  State<ReportsPage> createState() => _ReportsPage();
 }
 
-class MyApp extends StatelessWidget {
+class _ReportsPage extends State<ReportsPage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'My App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: MyHomePage(),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _currentIndex = 0;
-  final List<Widget> _screens = [
-    HomeScreen(),
-    ProfileScreen(),
-    SettingsScreen(),
-  ];
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('My App'),
-      ),
-      body: _screens[_currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _currentIndex,
-        onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-        },
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
+        debugShowCheckedModeBanner: false,
+        home: Scaffold(
+          backgroundColor: ColourPalette.white,
+          appBar: AppBar(
+            leading: BackButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            scrolledUnderElevation: 0,
+            elevation: 0,
+            backgroundColor: ColourPalette.white,
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
+          body: SingleChildScrollView(
+            child: Center(
+                child: Container(
+                    margin: const EdgeInsets.all(15.0),
+                    child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.max,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          SizedBox(
+                              width: double.infinity,
+                              child: Text(
+                                "R E P O R T S",
+                                textAlign: TextAlign.center,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .displaySmall
+                                    ?.copyWith(
+                                        fontFamily: 'Inter',
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.normal,
+                                        color: ColourPalette.purple),
+                              )),
+                          SizedBox(height: 15),
+                          SizedBox(height: 20),
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(0, 10, 35, 10),
+                            child: Text(
+                              "T H I S  W E E K ' S  R E P O R T",
+                              textAlign: TextAlign.left,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .displaySmall
+                                  ?.copyWith(
+                                      fontFamily: 'Inter',
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.normal,
+                                      color: ColourPalette.darkPurple),
+                            ),
+                          ),
+                          SizedBox(height: 20),
+                          SizedBox(
+                              height: 216,
+                              width: 270,
+                              child: Material(
+                                  elevation: 8,
+                                  shadowColor: ColourPalette.gray,
+                                  borderRadius: BorderRadius.circular(5),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        "Janalisa Waugh's Mental Health Pattern Report",
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                            color: ColourPalette.black,
+                                            fontFamily: 'Inter',
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.w400),
+                                      ),
+                                    ],
+                                  ))),
+                          SizedBox(height: 50),
+                        ]))),
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Settings',
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class HomeScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text('Home Screen'),
-    );
-  }
-}
-
-class ProfileScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text('Profile Screen'),
-    );
-  }
-}
-
-class SettingsScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text('Settings Screen'),
-    );
+        ));
   }
 }
