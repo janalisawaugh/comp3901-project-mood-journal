@@ -129,7 +129,7 @@ class _JournalEntriesMonthlyPage extends State<JournalEntriesMonthlyPage> {
                                           textAlign: TextAlign.center,
                                           style: TextStyle(
                                               color: ColourPalette.white,
-                                              fontFamily: 'white',
+                                              fontFamily: 'Inter',
                                               fontSize: 15,
                                               fontWeight: FontWeight.w400),
                                         )
@@ -168,7 +168,7 @@ class _JournalEntriesMonthlyPage extends State<JournalEntriesMonthlyPage> {
                                           textAlign: TextAlign.center,
                                           style: TextStyle(
                                               color: ColourPalette.white,
-                                              fontFamily: 'white',
+                                              fontFamily: 'Inter',
                                               fontSize: 15,
                                               fontWeight: FontWeight.w400),
                                         )
@@ -207,7 +207,7 @@ class _JournalEntriesMonthlyPage extends State<JournalEntriesMonthlyPage> {
                                           textAlign: TextAlign.center,
                                           style: TextStyle(
                                               color: ColourPalette.white,
-                                              fontFamily: 'white',
+                                              fontFamily: 'Inter',
                                               fontSize: 15,
                                               fontWeight: FontWeight.w400),
                                         )
@@ -246,7 +246,7 @@ class _JournalEntriesMonthlyPage extends State<JournalEntriesMonthlyPage> {
                                           textAlign: TextAlign.center,
                                           style: TextStyle(
                                               color: ColourPalette.white,
-                                              fontFamily: 'white',
+                                              fontFamily: 'Inter',
                                               fontSize: 15,
                                               fontWeight: FontWeight.w400),
                                         )

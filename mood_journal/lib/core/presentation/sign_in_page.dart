@@ -4,18 +4,10 @@ import 'package:flutter/widgets.dart';
 //import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mood_journal/core/presentation/account_setup_info.dart';
 import 'package:mood_journal/core/presentation/home_page.dart';
+import 'package:mood_journal/core/presentation/twofa_send_page.dart';
 import 'package:mood_journal/core/ui_features/colour_palette.dart';
-// import 'package:provider/provider.dart';
-//import 'dart:ui' show lerpDouble;
 
 import 'package:mood_journal/core/ui_features/images.dart';
-
-// import 'package:flutter_riverpod/flutter_riverpod.dart';
-// import 'package:flutter_svg/flutter_svg.dart';
-
-// void main() {
-//   runApp(SignInPage());
-// }
 
 class SignInPage extends StatefulWidget {
   @override
@@ -161,7 +153,8 @@ class _SignInPage extends State<SignInPage> {
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => HomePageBar()));
+                                          builder: (context) =>
+                                              TwoFactorSendPage()));
                                 },
                                 style: TextButton.styleFrom(
                                   backgroundColor: ColourPalette.white,

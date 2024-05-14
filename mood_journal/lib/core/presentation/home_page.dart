@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
 import 'package:mood_journal/core/presentation/account_setup_consent.dart';
+import 'package:mood_journal/core/presentation/accounts_centre.dart';
 import 'package:mood_journal/core/presentation/analytics_page.dart';
 import 'package:mood_journal/core/presentation/journal_entries_monthly_page.dart';
 import 'package:mood_journal/core/presentation/journal_entries_page.dart';
@@ -10,12 +11,7 @@ import 'package:mood_journal/core/presentation/journal_entry_page.dart';
 import 'package:mood_journal/core/presentation/login_page.dart';
 import 'package:mood_journal/core/presentation/sign_in_page.dart';
 import 'package:mood_journal/core/ui_features/colour_palette.dart';
-// import 'package:provider/provider.dart';
-
 import 'package:mood_journal/core/ui_features/images.dart';
-
-// import 'package:flutter_riverpod/flutter_riverpod.dart';
-// import 'package:flutter_svg/flutter_svg.dart';
 
 class HomePageBar extends StatefulWidget {
   @override
@@ -28,7 +24,7 @@ class _HomePageBar extends State<HomePageBar> {
     HomePage(),
     JournalEntriesPage(),
     AnalyticsPage(),
-    AccountSetupConsentPage(),
+    AccountCentrePage(),
   ];
   void _onItemTapped(int index) {
     setState(() {
@@ -240,7 +236,7 @@ class _HomePage extends State<HomePage> {
                                           builder: (context) =>
                                               JournalEntryDailyPage(
                                                   dateToday: todayDateString)));
-                                }, //TODO add correct navigation
+                                },
                                 style: TextButton.styleFrom(
                                   backgroundColor: ColourPalette.purple,
                                   shape: RoundedRectangleBorder(
