@@ -50,8 +50,7 @@ def register_user():
 
         # Parse request data
         user_data = request.json
-        first_name = user_data.get('first_name')
-        last_name = user_data.get('last_name')
+        name = user_data.get('name')
         email = user_data.get('email')
         password = user_data.get('password')
 
@@ -66,7 +65,7 @@ def register_user():
 
         # Insert user into the database
         cursor.execute("INSERT INTO Users (first_name, last_name, email, password, totp_secret) VALUES (%s, %s, %s, %s, %s)",
-                       (first_name, last_name, email, hashed_password, ', '.join(map(str, passkeys))))
+                       (name, email, hashed_password, ', '.join(map(str, passkeys))))
         cnx.commit()
 
         return make_response(jsonify({'message': 'User registered successfully. Check your email for the passkeys.'}), 200)

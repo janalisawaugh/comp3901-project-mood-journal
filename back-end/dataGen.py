@@ -6,16 +6,15 @@ def generate_sql_file():
     # Define SQL commands to create and use database
     sql_commands = [
         """
-        CREATE DATABASE IF NOT EXISTS mood_journal2;
+        CREATE DATABASE IF NOT EXISTS mood_journal;
         """,
         """
-        USE mood_journal2;
+        USE mood_journal;
         """,
         """
         CREATE TABLE IF NOT EXISTS Users (
             user_id INTEGER PRIMARY KEY AUTO_INCREMENT,
-            first_name VARCHAR(255) NOT NULL,
-            last_name VARCHAR(255) NOT NULL,
+            name VARCHAR(255) NOT NULL,
             email VARCHAR(255) UNIQUE NOT NULL,
             password VARCHAR(255) NOT NULL,
             totp_secret VARCHAR(255) NOT NULL
