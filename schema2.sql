@@ -20,8 +20,9 @@
             user_id INTEGER NOT NULL,
             entry_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
             mood_description TEXT NOT NULL,
+            emotion TEXT,
             FOREIGN KEY (user_id) REFERENCES Users(user_id)
-        );
+        ) ENGINE=InnoDB ROW_FORMAT=COMPRESSED;
         
 
         CREATE TABLE IF NOT EXISTS Recommendations (
