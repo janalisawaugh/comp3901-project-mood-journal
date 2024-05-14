@@ -65,8 +65,7 @@ class _AccountProfilePage extends State<AccountSetupProfilePage> {
                               height: 180,
                               width: 180,
                               child: Image.asset(Images.profilePicture,
-                                  fit: BoxFit
-                                      .cover), //TODO figure out why this image isn't being displayed
+                                  fit: BoxFit.cover),
                             ),
                             SizedBox(height: 20),
                             Text("Step 4: Profile Picture",

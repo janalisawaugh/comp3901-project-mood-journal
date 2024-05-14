@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 
 import 'package:mood_journal/core/presentation/account_setup_consent.dart';
 import 'package:mood_journal/core/presentation/journal_entries_monthly_page.dart';
+import 'package:mood_journal/core/presentation/journal_entry_daily.dart';
 import 'package:mood_journal/core/presentation/login_page.dart';
 import 'package:mood_journal/core/presentation/sign_in_page.dart';
 import 'package:mood_journal/core/ui_features/colour_palette.dart';
@@ -21,12 +22,9 @@ class JournalEntriesPage extends StatefulWidget {
 }
 
 class _JournalEntriesPage extends State<JournalEntriesPage> {
-  int _currentIndex = 0;
-  final List<Widget> _screens = [
-    SignInPage(),
-    LoginPage(),
-    AccountSetupConsentPage(),
-  ];
+  // For passing the date to the other screen
+  String? todaydDateString =
+      DateFormat('yMMMd').format(DateTime.now()).toString();
   String? _selectedDateString =
       DateFormat('MMMM yyyy').format(DateTime.now()).toString();
   DateTime _selectedDate = DateTime.now();
@@ -246,51 +244,38 @@ class _JournalEntriesPage extends State<JournalEntriesPage> {
                                   ))),
                           SizedBox(height: 50),
                           SizedBox(
-                            width: 200,
-                            child: TextButton(
-                              onPressed: () {}, //TODO add navigation
+                            height: 30,
+                            width: 150,
+                            child: ElevatedButton.icon(
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            JournalEntryDailyPage(
+                                                dateToday: todaydDateString)));
+                              }, //TODO add correct navigation
                               style: TextButton.styleFrom(
-                                backgroundColor: ColourPalette.purple,
+                                backgroundColor: ColourPalette.white,
                                 shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
+                                    borderRadius: BorderRadius.circular(8),
+                                    side:
+                                        BorderSide(color: ColourPalette.black)),
                               ),
-                              child: const Text(
-                                "Finished",
+                              label: Text(
+                                "Add Entry",
                                 style: TextStyle(
-                                    color: ColourPalette.white,
-                                    fontWeight: FontWeight.w400),
+                                    color: ColourPalette.black,
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 12),
                               ),
+                              icon: ImageIcon(
+                                  AssetImage(Images.writeButtonIcon),
+                                  color: ColourPalette.black),
                             ),
                           ),
                           SizedBox(height: 50),
                         ]))),
-          ),
-          bottomNavigationBar: BottomNavigationBar(
-            currentIndex: _currentIndex,
-            onTap: (index) {
-              setState(() {
-                _currentIndex = index;
-              });
-            },
-            items: const [
-              BottomNavigationBarItem(
-                  icon: ImageIcon(AssetImage(Images.homeIcon),
-                      color: ColourPalette.black, size: 20),
-                  label: 'Home'),
-              BottomNavigationBarItem(
-                  icon: ImageIcon(AssetImage(Images.journalIcon),
-                      color: ColourPalette.black, size: 20),
-                  label: 'Journal'),
-              BottomNavigationBarItem(
-                  icon: ImageIcon(AssetImage(Images.graphIcon),
-                      color: ColourPalette.black, size: 20),
-                  label: 'Analytics'),
-              BottomNavigationBarItem(
-                  icon: ImageIcon(AssetImage(Images.profileIcon),
-                      color: ColourPalette.black, size: 20),
-                  label: 'Account'),
-            ],
           ),
         ));
   }

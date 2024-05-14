@@ -16,8 +16,8 @@ class Images {
   static const String ideaIcon = 'assets/images/ideaicon.svg';
   static const String profileIcon = 'assets/images/profileicon.png';
   static const String profileIconFilled = 'assets/images/profileiconfilled.png';
-  static const String radioButtomEmpty = 'assets/images/radiobuttonempty.svg';
-  static const String radioButtonFilled = 'assets/images/radiobuttonfilled.svg';
+  static const String radioButtonEmpty = 'assets/images/radiobuttonempty.png';
+  static const String radioButtonFilled = 'assets/images/radiobuttonfilled.png';
   static const String searchBoxIcon = 'assets/images/searchboxicon.svg';
   static const String searchIcon = 'assets/images/searchicon.png';
   static const String searchIconFilled = 'assets/images/searchiconfilled.png';
@@ -43,4 +43,5 @@ class Images {
   static const String sunny = 'assets/images/sunny.png';
   static const String windy = 'assets/images/windy.png';
   static const String thunderstorm = 'assets/images/thunderstorm.png';
+  static const String sampleChart = 'assets/images/samplechart.png';
 }
