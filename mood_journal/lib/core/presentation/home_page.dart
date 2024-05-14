@@ -70,6 +70,7 @@ class HomePage extends StatefulWidget {
 class _HomePage extends State<HomePage> {
   String? todayDateString =
       DateFormat('yMMMd').format(DateTime.now()).toString();
+  // String firstName = "J A N A L I S A";
 
   @override
   Widget build(BuildContext context) {
@@ -130,8 +131,8 @@ class _HomePage extends State<HomePage> {
                                           fontWeight: FontWeight.w400)),
                                   TextSpan(
                                     // TODO change this back and also use a variable
-                                    //text: "F I R S T  N A M E ",
-                                    text: "J A N A L I S A",
+                                    text:
+                                        "J A N A L I S A", // please change to variable
                                     style: TextStyle(
                                         color: ColourPalette.purpleNameText,
                                         fontFamily: 'Inter',

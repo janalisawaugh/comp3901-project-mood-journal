@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -12,6 +14,31 @@ class AccountSetupInfoPage extends StatefulWidget {
 }
 
 class _AccountInfoPage extends State<AccountSetupInfoPage> {
+  //For getting text from text fields, add controllers to respective fields
+  //then use setState to assign controller values to string variables
+  TextEditingController nameController = TextEditingController();
+  TextEditingController userNameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
+
+  String collectedName = "";
+  String collectedUsername = "";
+  String collectedEmail = "";
+  String collectedPassword = "";
+  String collectedPhone = "";
+
+  @override
+  void dispose() {
+    // Dispose the controllers when the widget is disposed to avoid memory leaks
+    nameController.dispose();
+    userNameController.dispose();
+    emailController.dispose();
+    passwordController.dispose();
+    phoneController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -105,6 +132,7 @@ class _AccountInfoPage extends State<AccountSetupInfoPage> {
                                             borderRadius:
                                                 BorderRadius.circular(8),
                                             child: TextFormField(
+                                                controller: nameController,
                                                 decoration: const InputDecoration(
                                                     filled: true,
                                                     fillColor:
@@ -170,6 +198,7 @@ class _AccountInfoPage extends State<AccountSetupInfoPage> {
                                             borderRadius:
                                                 BorderRadius.circular(5),
                                             child: TextFormField(
+                                                controller: userNameController,
                                                 decoration:
                                                     const InputDecoration(
                                                         filled: true,
@@ -240,6 +269,7 @@ class _AccountInfoPage extends State<AccountSetupInfoPage> {
                                             borderRadius:
                                                 BorderRadius.circular(5),
                                             child: TextFormField(
+                                                controller: emailController,
                                                 decoration: const InputDecoration(
                                                     filled: true,
                                                     fillColor:
@@ -372,6 +402,7 @@ class _AccountInfoPage extends State<AccountSetupInfoPage> {
                                             borderRadius:
                                                 BorderRadius.circular(5),
                                             child: TextFormField(
+                                                controller: passwordController,
                                                 obscureText: true,
                                                 decoration: const InputDecoration(
                                                     filled: true,
@@ -439,6 +470,7 @@ class _AccountInfoPage extends State<AccountSetupInfoPage> {
                                             borderRadius:
                                                 BorderRadius.circular(5),
                                             child: TextFormField(
+                                                controller: phoneController,
                                                 decoration: const InputDecoration(
                                                     filled: true,
                                                     fillColor:
@@ -481,6 +513,17 @@ class _AccountInfoPage extends State<AccountSetupInfoPage> {
                                       MaterialPageRoute(
                                           builder: (context) =>
                                               AccountSetupAboutPage()));
+                                  setState(
+                                    () {
+                                      collectedName = nameController.text;
+                                      collectedUsername =
+                                          userNameController.text;
+                                      collectedEmail = emailController.text;
+                                      collectedPassword =
+                                          passwordController.text;
+                                      collectedPhone = phoneController.text;
+                                    },
+                                  );
                                 }, //TODO add navigation
                                 style: TextButton.styleFrom(
                                   backgroundColor: ColourPalette.purple,

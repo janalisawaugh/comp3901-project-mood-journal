@@ -13,6 +13,7 @@ class AccountSetupAboutPage extends StatefulWidget {
 }
 
 class _AccountAboutPage extends State<AccountSetupAboutPage> {
+  // variables for icon buttons
   bool sunnyfilledSelected = false;
   bool partcloudfilledSelected = false;
   bool cloudyfilledSelected = false;
@@ -25,6 +26,29 @@ class _AccountAboutPage extends State<AccountSetupAboutPage> {
   bool threeSelected = false;
   bool fourSelected = false;
   bool fiveSelected = false;
+
+  //For getting text from text fields, add controllers to respective fields
+  //then use setState to assign controller values to string variables
+  TextEditingController ageController = TextEditingController();
+  TextEditingController genderController = TextEditingController();
+  TextEditingController disorderController = TextEditingController();
+  TextEditingController hobbyController = TextEditingController();
+
+  String collectedAge = "";
+  String collectedGender = "";
+  String collectedDisorder = "";
+  String collectedHobby = "";
+
+  @override
+  void dispose() {
+    // Dispose the controllers when the widget is disposed to avoid memory leaks
+    ageController = TextEditingController();
+    genderController = TextEditingController();
+    disorderController = TextEditingController();
+    hobbyController = TextEditingController();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -118,6 +142,7 @@ class _AccountAboutPage extends State<AccountSetupAboutPage> {
                                             borderRadius:
                                                 BorderRadius.circular(8),
                                             child: TextFormField(
+                                                controller: ageController,
                                                 decoration: const InputDecoration(
                                                     filled: true,
                                                     fillColor:
@@ -183,6 +208,7 @@ class _AccountAboutPage extends State<AccountSetupAboutPage> {
                                             borderRadius:
                                                 BorderRadius.circular(5),
                                             child: TextFormField(
+                                                controller: genderController,
                                                 decoration:
                                                     const InputDecoration(
                                                         filled: true,
@@ -253,6 +279,7 @@ class _AccountAboutPage extends State<AccountSetupAboutPage> {
                                             borderRadius:
                                                 BorderRadius.circular(5),
                                             child: TextFormField(
+                                                controller: disorderController,
                                                 decoration:
                                                     const InputDecoration(
                                                         filled: true,
@@ -323,6 +350,7 @@ class _AccountAboutPage extends State<AccountSetupAboutPage> {
                                             borderRadius:
                                                 BorderRadius.circular(5),
                                             child: TextFormField(
+                                                controller: hobbyController,
                                                 decoration:
                                                     const InputDecoration(
                                                         filled: true,
@@ -998,6 +1026,15 @@ class _AccountAboutPage extends State<AccountSetupAboutPage> {
                                       MaterialPageRoute(
                                           builder: (context) =>
                                               AccountSetupConsentPage()));
+                                  setState(
+                                    () {
+                                      collectedAge = ageController.text;
+                                      collectedGender = genderController.text;
+                                      collectedDisorder =
+                                          disorderController.text;
+                                      collectedHobby = hobbyController.text;
+                                    },
+                                  );
                                 },
                                 style: TextButton.styleFrom(
                                   backgroundColor: ColourPalette.purple,

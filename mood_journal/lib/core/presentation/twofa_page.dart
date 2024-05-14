@@ -14,6 +14,20 @@ class TwoFactorInputPage extends StatefulWidget {
 class _TwoFactorInputPage extends State<TwoFactorInputPage> {
   bool emailSelected = false;
   bool smsSelected = false;
+
+  //For getting text from text fields, add controllers to respective fields
+  //then use setState to assign controller values to string variables
+  TextEditingController codeController = TextEditingController();
+
+  String collectedCode = "";
+
+  @override
+  void dispose() {
+    // Dispose the controllers when the widget is disposed to avoid memory leaks
+    codeController = TextEditingController();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -96,6 +110,7 @@ class _TwoFactorInputPage extends State<TwoFactorInputPage> {
                                     height: 94,
                                     width: 322,
                                     child: TextFormField(
+                                        controller: codeController,
                                         decoration: const InputDecoration(
                                             filled: true,
                                             fillColor: ColourPalette.white,
@@ -121,6 +136,9 @@ class _TwoFactorInputPage extends State<TwoFactorInputPage> {
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) => HomePageBar()));
+                                  setState(() {
+                                    collectedCode = codeController.text;
+                                  });
                                 },
                                 style: TextButton.styleFrom(
                                   backgroundColor: ColourPalette.white,
