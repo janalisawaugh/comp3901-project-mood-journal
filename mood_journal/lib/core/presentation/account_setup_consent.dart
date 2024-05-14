@@ -1,16 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-//import 'package:flutter_svg/flutter_svg.dart';
 import 'package:datepicker_dropdown/datepicker_dropdown.dart';
 import 'package:mood_journal/core/presentation/account_setup_profile.dart';
 import 'package:mood_journal/core/ui_features/colour_palette.dart';
-// import 'package:provider/provider.dart';
-//import 'dart:ui' show lerpDouble;
 
 import 'package:mood_journal/core/ui_features/images.dart';
-
-// import 'package:flutter_riverpod/flutter_riverpod.dart';
-// import 'package:flutter_svg/flutter_svg.dart';
 
 class AccountSetupConsentPage extends StatefulWidget {
   @override

@@ -95,33 +95,19 @@ class _TwoFactorInputPage extends State<TwoFactorInputPage> {
                                   SizedBox(
                                     height: 94,
                                     width: 322,
-                                    child: TextButton.icon(
-                                      onPressed: () {
-                                        setState(() {
-                                          emailSelected = !emailSelected;
-                                          smsSelected = false;
-                                        });
-                                      },
-                                      style: TextButton.styleFrom(
-                                        backgroundColor: ColourPalette.white,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(8),
-                                        ),
-                                      ),
-                                      label: Text(
-                                        "Send code to your email",
+                                    child: TextFormField(
+                                        decoration: const InputDecoration(
+                                            filled: true,
+                                            fillColor: ColourPalette.white,
+                                            floatingLabelBehavior:
+                                                FloatingLabelBehavior.never,
+                                            border: OutlineInputBorder(
+                                                borderRadius: BorderRadius.all(
+                                                    Radius.circular(5)))),
                                         style: TextStyle(
-                                            color: ColourPalette.black,
-                                            fontWeight: FontWeight.w400,
-                                            fontSize: 15),
-                                      ),
-                                      icon: ImageIcon(
-                                          AssetImage(emailSelected
-                                              ? Images.radioButtonEmpty
-                                              : Images.radioButtonFilled),
-                                          color: ColourPalette.white),
-                                    ),
+                                            fontFamily: 'Inter',
+                                            fontSize: 20,
+                                            color: ColourPalette.black)),
                                   ),
                                 ]),
                             SizedBox(height: 30),

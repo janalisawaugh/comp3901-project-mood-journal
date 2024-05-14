@@ -324,7 +324,7 @@ class _AccountCentrePage extends State<AccountCentrePage> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => SignInPage()));
+                                        builder: (context) => LoginPage()));
                               },
                               icon: Image.asset(
                                 Images.recommendationIcon,
