@@ -2,32 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:mood_journal/core/presentation/account_setup_consent.dart';
 import 'package:mood_journal/core/presentation/journal_entries_page.dart';
-import 'package:mood_journal/core/presentation/journal_entry_complete.dart';
 import 'package:mood_journal/core/presentation/login_page.dart';
 import 'package:mood_journal/core/presentation/sign_in_page.dart';
 import 'package:mood_journal/core/ui_features/colour_palette.dart';
 
 import 'package:mood_journal/core/ui_features/images.dart';
 
-// import 'package:flutter_riverpod/flutter_riverpod.dart';
-// import 'package:flutter_svg/flutter_svg.dart';
 
-class JournalEntryPage extends StatefulWidget {
-  JournalEntryPage({required displayDate});
-  String? displayDate;
+class JournalEntryCompletePage extends StatefulWidget {
+  
   @override
-  State<JournalEntryPage> createState() => _JournalEntryPage();
+  State<JournalEntryCompletePage> createState() => _JournalEntryCompletePage();
 }
 
-class _JournalEntryPage extends State<JournalEntryPage> {
+class _JournalEntryCompletePage extends State<JournalEntryCompletePage> {
   String? _receivedDate = '';
   String stringDate = DateTime.now().toString();
-  @override
-  void initState() {
-    super.initState();
-    _receivedDate = widget.displayDate;
-    stringDate = _receivedDate.toString();
-  }
+  
 
   @override
   Widget build(BuildContext context) {
@@ -73,24 +64,12 @@ class _JournalEntryPage extends State<JournalEntryPage> {
                             //text field for entry title
                             height: 28,
                             width: 308,
-                            child: TextFormField(
-                                decoration: const InputDecoration(
-                                    filled: true,
-                                    fillColor: ColourPalette.white,
-                                    floatingLabelBehavior:
-                                        FloatingLabelBehavior.never,
-                                    labelText: "Give this entry a title..",
-                                    labelStyle: TextStyle(
-                                        fontFamily: 'Inter',
-                                        fontSize: 12,
-                                        color: ColourPalette.lightgrayText),
-                                    border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(5)))),
+                            child: Text(
+                                "Bad Day",
                                 style: TextStyle(
                                     fontFamily: 'Inter',
                                     fontSize: 12,
-                                    color: ColourPalette.black)),
+                                    color: ColourPalette.darkPurple)),
                           ),
                           SizedBox(height: 20),
                           Padding(
@@ -118,22 +97,8 @@ class _JournalEntryPage extends State<JournalEntryPage> {
                             //text field for journal entry
                             height: 443,
                             width: 317,
-                            child: TextFormField(
-                                keyboardType: TextInputType.multiline,
-                                maxLines: null,
-                                decoration: const InputDecoration(
-                                    filled: true,
-                                    fillColor: ColourPalette.white,
-                                    floatingLabelBehavior:
-                                        FloatingLabelBehavior.never,
-                                    labelText: "I feel like...",
-                                    labelStyle: TextStyle(
-                                        fontFamily: 'Inter',
-                                        fontSize: 12,
-                                        color: ColourPalette.lightgrayText),
-                                    border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(5)))),
+                            child: Text(
+                                "Feeling really down today. Everything seems to be going wrong, and I can't shake this feeling of sadness. It's like a heavy weight on my chest, making it hard to breathe. I miss my old job and wish things could go back to how they used to be.",
                                 style: TextStyle(
                                     fontFamily: 'Inter',
                                     fontSize: 12,
@@ -148,7 +113,7 @@ class _JournalEntryPage extends State<JournalEntryPage> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) =>
-                                            JournalEntryCompletePage()));
+                                            JournalEntriesPage()));
                               }, //TODO add navigation
                               style: TextButton.styleFrom(
                                 backgroundColor: ColourPalette.purple,
@@ -157,7 +122,7 @@ class _JournalEntryPage extends State<JournalEntryPage> {
                                 ),
                               ),
                               child: const Text(
-                                "Finished",
+                                "Back to Entries",
                                 style: TextStyle(
                                     color: ColourPalette.white,
                                     fontWeight: FontWeight.w400),

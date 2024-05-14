@@ -28,7 +28,7 @@ class _JournalEntriesPage extends State<JournalEntriesPage> {
   String? _selectedDateString =
       DateFormat('MMMM yyyy').format(DateTime.now()).toString();
   DateTime _selectedDate = DateTime.now();
-  String journalEntryDate = '22ND ';
+  String journalEntryDate = 'DAY ';
   String entryTitle = 'TITLE OF JOURNAL ENTRY';
 
   @override

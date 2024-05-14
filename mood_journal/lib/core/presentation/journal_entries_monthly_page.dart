@@ -28,7 +28,7 @@ class _JournalEntriesMonthlyPage extends State<JournalEntriesMonthlyPage> {
   ];
   String? _receivedMonth = '';
   String stringMonth = '';
-  String journalEntryDate = '22ND MARCH 2024';
+  String journalEntryDate = 'DAY MARCH 2024';
   String entryTitle = 'TITLE OF JOURNAL ENTRY';
   String weatherImage = Images.sunny;
   @override

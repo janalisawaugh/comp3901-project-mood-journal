@@ -41,7 +41,7 @@ class _AccountProfilePage extends State<AccountSetupProfilePage> {
                             SizedBox(
                                 width: double.infinity,
                                 child: Text(
-                                  "F U L L  N A M E", //TODO use variable so name can be called from database
+                                  "M A R T I N  B A R T L E Y", //TODO use variable so name can be called from database
                                   textAlign: TextAlign.center,
                                   style: Theme.of(context)
                                       .textTheme

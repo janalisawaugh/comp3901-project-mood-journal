@@ -91,7 +91,7 @@ class _ReportsPage extends State<ReportsPage> {
                                         CrossAxisAlignment.center,
                                     children: [
                                       Text(
-                                        "Janalisa Waugh's Mental Health Pattern Report",
+                                        "Martin Bartley's Mental Health Pattern Report",
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                             color: ColourPalette.black,
