@@ -94,7 +94,7 @@ class _AccountProfilePage extends State<AccountSetupProfilePage> {
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
-                                                    HomePage()));
+                                                    HomePageBar()));
                                       },
                                       style: TextButton.styleFrom(
                                         backgroundColor: ColourPalette.purple,
@@ -119,7 +119,7 @@ class _AccountProfilePage extends State<AccountSetupProfilePage> {
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
-                                                    HomePage()));
+                                                    HomePageBar()));
                                       },
                                       style: TextButton.styleFrom(
                                         backgroundColor: ColourPalette.white,
