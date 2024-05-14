@@ -14,7 +14,7 @@ conn = mysql.connector.connect(
 )
 cursor = conn.cursor()
 
-def fetch_monthly_data(username, month_year):
+def fetch_monthly_data(user_id, month_year):
     try:
         month_year_obj = datetime.strptime(month_year, '%Y-%m')
     except ValueError:
@@ -26,8 +26,8 @@ def fetch_monthly_data(username, month_year):
     end_of_month = start_of_month + timedelta(days=31)
 
     # Query to fetch journal entries for the user within the specified month
-    query = 'SELECT dateCreated, emotion FROM Journal WHERE username = %s AND dateCreated BETWEEN %s AND %s'
-    params = [username, start_of_month, end_of_month]
+    query = 'SELECT entry_date, emotion FROM JournalEntries WHERE user_id = %s AND dateCreated BETWEEN %s AND %s'
+    params = [user_id, start_of_month, end_of_month]
 
     # Execute the query
     cursor.execute(query, params)
@@ -70,8 +70,8 @@ def analyze_emotions(entries):
 
     return weekly_emotions
 
-def generate_report(username, month_year):
-    entries = fetch_monthly_data(username, month_year)
+def generate_report(user_id, month_year):
+    entries = fetch_monthly_data(user_id, month_year)
     if not entries:
         print('No journal entries found for the specified month.')
         return
@@ -85,11 +85,11 @@ def generate_report(username, month_year):
     elements = []
 
     # Title
-    title = f"Sentiment Analysis Report for {username}'s Journal Entries - {month_year}"
+    title = f"Sentiment Analysis Report for {user_id}'s Journal Entries - {month_year}"
     elements.append(Paragraph(title, styles['Title']))
 
     # Sentiment Analysis Section
-    sentiment_text = f"From our sentiment analysis of {username}'s past month of journal entries, the overall sentiment is {sentiment}. {sentiment_statement}"
+    sentiment_text = f"From our sentiment analysis of {user_id}'s past month of journal entries, the overall sentiment is {sentiment}. {sentiment_statement}"
     elements.append(Paragraph(sentiment_text, styles['Normal']))
 
     # Emotions Analysis Section
