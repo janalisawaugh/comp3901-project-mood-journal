@@ -14,6 +14,20 @@ class TwoFactorInputPage extends StatefulWidget {
 class _TwoFactorInputPage extends State<TwoFactorInputPage> {
   bool emailSelected = false;
   bool smsSelected = false;
+
+  //For getting text from text fields, add controllers to respective fields
+  //then use setState to assign controller values to string variables
+  TextEditingController codeController = TextEditingController();
+
+  String collectedCode = "";
+
+  @override
+  void dispose() {
+    // Dispose the controllers when the widget is disposed to avoid memory leaks
+    codeController = TextEditingController();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -95,33 +109,20 @@ class _TwoFactorInputPage extends State<TwoFactorInputPage> {
                                   SizedBox(
                                     height: 94,
                                     width: 322,
-                                    child: TextButton.icon(
-                                      onPressed: () {
-                                        setState(() {
-                                          emailSelected = !emailSelected;
-                                          smsSelected = false;
-                                        });
-                                      },
-                                      style: TextButton.styleFrom(
-                                        backgroundColor: ColourPalette.white,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(8),
-                                        ),
-                                      ),
-                                      label: Text(
-                                        "Send code to your email",
+                                    child: TextFormField(
+                                        controller: codeController,
+                                        decoration: const InputDecoration(
+                                            filled: true,
+                                            fillColor: ColourPalette.white,
+                                            floatingLabelBehavior:
+                                                FloatingLabelBehavior.never,
+                                            border: OutlineInputBorder(
+                                                borderRadius: BorderRadius.all(
+                                                    Radius.circular(5)))),
                                         style: TextStyle(
-                                            color: ColourPalette.black,
-                                            fontWeight: FontWeight.w400,
-                                            fontSize: 15),
-                                      ),
-                                      icon: ImageIcon(
-                                          AssetImage(emailSelected
-                                              ? Images.radioButtonEmpty
-                                              : Images.radioButtonFilled),
-                                          color: ColourPalette.white),
-                                    ),
+                                            fontFamily: 'Inter',
+                                            fontSize: 20,
+                                            color: ColourPalette.black)),
                                   ),
                                 ]),
                             SizedBox(height: 30),
@@ -135,6 +136,9 @@ class _TwoFactorInputPage extends State<TwoFactorInputPage> {
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) => HomePageBar()));
+                                  setState(() {
+                                    collectedCode = codeController.text;
+                                  });
                                 },
                                 style: TextButton.styleFrom(
                                   backgroundColor: ColourPalette.white,

@@ -15,6 +15,22 @@ class SignInPage extends StatefulWidget {
 }
 
 class _SignInPage extends State<SignInPage> {
+  //for getting text from form fields
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
+  String collectedEmail = "";
+  String collectedPassword = "";
+
+  @override
+  void dispose() {
+    // Dispose the controllers when the widget is disposed to avoid memory leaks
+    emailController = TextEditingController();
+    passwordController = TextEditingController();
+
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -81,6 +97,7 @@ class _SignInPage extends State<SignInPage> {
                                     height: 40,
                                     width: 283,
                                     child: TextFormField(
+                                        controller: emailController,
                                         decoration: const InputDecoration(
                                             filled: true,
                                             fillColor: ColourPalette.white,
@@ -127,6 +144,7 @@ class _SignInPage extends State<SignInPage> {
                                     height: 40,
                                     width: 283,
                                     child: TextFormField(
+                                        controller: passwordController,
                                         obscureText: true,
                                         decoration: const InputDecoration(
                                             filled: true,
@@ -155,6 +173,12 @@ class _SignInPage extends State<SignInPage> {
                                       MaterialPageRoute(
                                           builder: (context) =>
                                               TwoFactorSendPage()));
+                                  setState(
+                                    () {
+                                      collectedEmail = emailController.text;
+                                      collectedPassword = emailController.text;
+                                    },
+                                  );
                                 },
                                 style: TextButton.styleFrom(
                                   backgroundColor: ColourPalette.white,
