@@ -18,6 +18,8 @@ class HomePageBar extends StatefulWidget {
   State<HomePageBar> createState() => _HomePageBar();
 }
 
+/// The _HomePageBar class manages a bottom navigation bar with multiple screens in a Flutter
+/// application.
 class _HomePageBar extends State<HomePageBar> {
   int _currentIndex = 0;
   final List<Widget> _screens = [
@@ -26,6 +28,13 @@ class _HomePageBar extends State<HomePageBar> {
     AnalyticsPage(),
     AccountCentrePage(),
   ];
+
+  /// The `_onItemTapped` function updates the `_currentIndex` state variable based on the index
+  /// parameter passed to it.
+  ///
+  /// @param index The `index` parameter in the `_onItemTapped` function represents the index of the
+  /// item that was tapped or selected. This index is used to update the `_currentIndex` state variable
+  /// to reflect the currently selected item in the user interface.
   void _onItemTapped(int index) {
     setState(() {
       _currentIndex = index;
@@ -68,6 +77,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePage extends State<HomePage> {
+  /// The Dart code is formatting the current date and time into a string in the format "yMMMd"
+  /// using the DateFormat class from the intl package. The resulting string will be stored in the
+  /// variable todayDateString.
   String? todayDateString =
       DateFormat('yMMMd').format(DateTime.now()).toString();
   String entryCount = "0";
@@ -131,8 +143,7 @@ class _HomePage extends State<HomePage> {
                                           fontWeight: FontWeight.w400)),
                                   TextSpan(
                                     // TODO change this back and also use a variable
-                                    text:
-                                        "M A R T I N", // please change to variable
+                                    text: "M A R T I N",
                                     style: TextStyle(
                                         color: ColourPalette.purpleNameText,
                                         fontFamily: 'Inter',
@@ -230,6 +241,14 @@ class _HomePage extends State<HomePage> {
                               height: 49,
                               width: 298,
                               child: TextButton.icon(
+                                /// Defining an `onPressed` event handler
+                                /// for a button press. When the button is pressed, it will navigate to
+                                /// a new screen using the `Navigator.push` method. The new screen is
+                                /// specified by the `MaterialPageRoute` with the `builder` function
+                                /// defining the widget to be displayed, in this case, the
+                                /// `JournalEntryDailyPage`. The `JournalEntryDailyPage` widget is being
+                                /// instantiated with a parameter `dateToday` set to the value of
+                                /// `todayDateString`.
                                 onPressed: () {
                                   Navigator.push(
                                       context,
@@ -261,6 +280,10 @@ class _HomePage extends State<HomePage> {
                               height: 49,
                               width: 298,
                               child: TextButton.icon(
+                                /// Defining an `onPressed` event handler for a button
+                                /// press in Dart. When the button is pressed, it will navigate to the
+                                /// `AnalyticsPage` using the `Navigator.push` method with a new
+                                /// `MaterialPageRoute`.
                                 onPressed: () {
                                   Navigator.push(
                                       context,
@@ -276,8 +299,6 @@ class _HomePage extends State<HomePage> {
                                 ),
                                 label: RichText(
                                     textAlign: TextAlign.center,
-                                    //maxLines: 1,
-                                    //overflow: TextOverflow.clip,
                                     text: const TextSpan(children: [
                                       TextSpan(
                                           text: "M A R T I N",

@@ -1,13 +1,12 @@
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-
 import 'package:mood_journal/core/presentation/account_setup_about.dart';
 import 'package:mood_journal/core/ui_features/colour_palette.dart';
-
 import 'package:mood_journal/core/ui_features/images.dart';
 
+/// The `AccountSetupInfoPage` class is a StatefulWidget in Dart that returns an instance of
+/// `_AccountInfoPage` as its state.
 class AccountSetupInfoPage extends StatefulWidget {
   @override
   State<AccountSetupInfoPage> createState() => _AccountInfoPage();
@@ -47,6 +46,9 @@ class _AccountInfoPage extends State<AccountSetupInfoPage> {
             backgroundColor: ColourPalette.white,
             appBar: AppBar(
               leading: BackButton(
+                /// The above Dart code is using the `Navigator` class to pop the current route off the
+                /// navigation stack, effectively closing the current screen and returning to the
+                /// previous screen in the navigation stack. Used in all pages after this
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
@@ -508,11 +510,24 @@ class _AccountInfoPage extends State<AccountSetupInfoPage> {
                               width: 200,
                               child: TextButton(
                                 onPressed: () {
+                                  /// Using the Navigator class to push a new
+                                  /// route onto the navigation stack. It is navigating to the
+                                  /// AccountSetupAboutPage using a MaterialPageRoute.
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) =>
                                               AccountSetupAboutPage()));
+
+                                  /// Using the `setState` method to update the
+                                  /// state variables `collectedName`, `collectedUsername`,
+                                  /// `collectedEmail`, `collectedPassword`, and `collectedPhone` with
+                                  /// the values retrieved from the respective text controllers
+                                  /// `nameController`, `userNameController`, `emailController`,
+                                  /// `passwordController`, and `phoneController`. These values would be
+                                  /// stored in the User database.This is typically
+                                  /// used in Flutter applications to update the UI when the state of
+                                  /// the application changes.
                                   setState(
                                     () {
                                       collectedName = nameController.text;
@@ -524,7 +539,7 @@ class _AccountInfoPage extends State<AccountSetupInfoPage> {
                                       collectedPhone = phoneController.text;
                                     },
                                   );
-                                }, //TODO add navigation
+                                },
                                 style: TextButton.styleFrom(
                                   backgroundColor: ColourPalette.purple,
                                   shape: RoundedRectangleBorder(

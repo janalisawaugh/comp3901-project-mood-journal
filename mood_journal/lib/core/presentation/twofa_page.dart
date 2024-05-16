@@ -1,24 +1,20 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:mood_journal/core/presentation/account_setup_info.dart';
 import 'package:mood_journal/core/presentation/home_page.dart';
 import 'package:mood_journal/core/ui_features/colour_palette.dart';
 import 'package:mood_journal/core/ui_features/images.dart';
 
+/// The class TwoFactorInputPage is a StatefulWidget for use
 class TwoFactorInputPage extends StatefulWidget {
   @override
   State<TwoFactorInputPage> createState() => _TwoFactorInputPage();
 }
 
 class _TwoFactorInputPage extends State<TwoFactorInputPage> {
-  bool emailSelected = false;
-  bool smsSelected = false;
-
   //For getting text from text fields, add controllers to respective fields
   //then use setState to assign controller values to string variables
   TextEditingController codeController = TextEditingController();
-
   String collectedCode = "";
 
   @override
@@ -130,8 +126,9 @@ class _TwoFactorInputPage extends State<TwoFactorInputPage> {
                             SizedBox(
                               width: 200,
                               child: TextButton(
+                                /// The `onPressed` function in the `TextButton` widget is performing
+                                /// two main actions:
                                 onPressed: () {
-                                  //TODO fix navigation
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(

@@ -1,3 +1,4 @@
+/// The Images class contains static constants for various image assets used in the application.
 class Images {
   Images._();
 

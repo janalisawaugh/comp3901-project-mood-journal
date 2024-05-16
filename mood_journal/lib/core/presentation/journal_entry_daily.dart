@@ -12,6 +12,8 @@ import 'package:mood_journal/core/ui_features/colour_palette.dart';
 import 'package:mood_journal/core/ui_features/images.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 
+/// The class `JournalEntryDailyPage` is a StatefulWidget in Dart that represents a daily journal entry
+/// page with a date parameter.
 class JournalEntryDailyPage extends StatefulWidget {
   JournalEntryDailyPage({required this.dateToday});
   String? dateToday;
@@ -20,20 +22,15 @@ class JournalEntryDailyPage extends StatefulWidget {
 }
 
 class _JournalEntryDailyPage extends State<JournalEntryDailyPage> {
+  // For receiving the current date from Journal Entries page
   String? _receivedDate = DateTime.now().toString();
   String stringDate = '';
+
   String hobby1 = 'Painting';
   String hobby2 = 'Swimming';
   String hobby3 = 'Reading';
-  // DateTime today = DateTime.now();
-  // String getFormattedDate() {
 
-  //   DateTime today = DateTime.now();
-  //   String formattedDate = DateFormat('MMMM dd, yyyy').format(DateTime.now());
-  //   return formattedDate;
-  // }
-
-  //for the weather, diet rating and hobby buttons
+  // To determine if the weather, diet rating and hobby buttons have been selected
   bool sunnyfilledSelected = false;
   bool partcloudfilledSelected = false;
   bool cloudyfilledSelected = false;
@@ -51,6 +48,8 @@ class _JournalEntryDailyPage extends State<JournalEntryDailyPage> {
   bool hobby2Selected = false;
   bool hobby3Selected = false;
 
+  /// The initState function in Dart sets the _receivedDate variable to the date passed in through the
+  /// widget and converts it to a string.
   @override
   void initState() {
     super.initState();
@@ -58,7 +57,6 @@ class _JournalEntryDailyPage extends State<JournalEntryDailyPage> {
     stringDate = _receivedDate.toString();
   }
 
-  //String? thisMonth;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -157,6 +155,17 @@ class _JournalEntryDailyPage extends State<JournalEntryDailyPage> {
                                         selectedIcon: ImageIcon(
                                             AssetImage(Images.sunny),
                                             color: ColourPalette.white),
+
+                                        /// Defining an `onPressed` event
+                                        /// handler function that toggles the state of several boolean
+                                        /// variables when a button is pressed. Specifically, it sets
+                                        /// the `sunnyfilledSelected` variable to the opposite of its
+                                        /// current value, and sets all other related variables
+                                        /// (`partcloudfilledSelected`, `cloudyfilledSelected`,
+                                        /// `rainyfilledSelected`, `thunderfilledSelected`,
+                                        /// `windyfilledSelected`) to `false`. This code is used
+                                        /// to handle the selection of different weather icons or states
+                                        /// in user interface. Same function format is used for all selection buttons on this page.
                                         onPressed: () {
                                           setState(() {
                                             sunnyfilledSelected =
@@ -653,13 +662,18 @@ class _JournalEntryDailyPage extends State<JournalEntryDailyPage> {
                           SizedBox(
                             width: 200,
                             child: TextButton(
+                              /// Defining an `onPressed` event handler for a button
+                              /// press in Dart. When the button is pressed, it will navigate to a new
+                              /// page using the `Navigator.push` method. The new page being navigated
+                              /// to is `JournalEntryPage`, and it is being passed a parameter
+                              /// `displayDate` with the value `_receivedDate`.
                               onPressed: () {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) => JournalEntryPage(
                                             displayDate: _receivedDate)));
-                              }, //TODO add navigation
+                              },
                               style: TextButton.styleFrom(
                                 backgroundColor: ColourPalette.purple,
                                 shape: RoundedRectangleBorder(

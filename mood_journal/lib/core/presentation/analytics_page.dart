@@ -1,22 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-//import 'package:flutter_svg/flutter_svg.dart';
 import 'package:datepicker_dropdown/datepicker_dropdown.dart';
-//import 'package:flutter_svg/svg.dart';
 import 'package:mood_journal/core/presentation/account_setup_consent.dart';
 import 'package:mood_journal/core/presentation/charts_page.dart';
 import 'package:mood_journal/core/presentation/login_page.dart';
 import 'package:mood_journal/core/presentation/reports_page.dart';
 import 'package:mood_journal/core/presentation/sign_in_page.dart';
 import 'package:mood_journal/core/ui_features/colour_palette.dart';
-// import 'package:provider/provider.dart';
-//import 'dart:ui' show lerpDouble;
-
 import 'package:mood_journal/core/ui_features/images.dart';
 
-// import 'package:flutter_riverpod/flutter_riverpod.dart';
-// import 'package:flutter_svg/flutter_svg.dart';
-
+/// The `AnalyticsPage` class is a StatefulWidget in Dart that overrides the `createState` method to
+/// return an instance of `_AnalyticsPage`. This page shows recommendations based on identified emotion from journal entries.
 class AnalyticsPage extends StatefulWidget {
   @override
   State<AnalyticsPage> createState() => _AnalyticsPage();
@@ -125,12 +119,15 @@ class _AnalyticsPage extends State<AnalyticsPage> {
                           SizedBox(
                             width: 200,
                             child: TextButton(
+                              /// The `onPressed` function is
+                              /// responsible for navigating to the `ReportsPage` when a button is
+                              /// pressed.
                               onPressed: () {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) => ReportsPage()));
-                              }, //TODO add navigation
+                              },
                               style: TextButton.styleFrom(
                                 backgroundColor: ColourPalette.purple,
                                 shape: RoundedRectangleBorder(
@@ -148,12 +145,19 @@ class _AnalyticsPage extends State<AnalyticsPage> {
                           SizedBox(
                             width: 200,
                             child: TextButton(
+                              /// The `onPressed` function is
+                              /// responsible for handling the action when the corresponding button is
+                              /// pressed. In this case, when the button labeled "Charts" is pressed,
+                              /// the function navigates to the `ChartsPage` by pushing a new route onto
+                              /// the navigator's stack using `Navigator.push`. This allows the user to
+                              /// move from the current page (AnalyticsPage) to the ChartsPage for
+                              /// viewing charts related to the data analysis.
                               onPressed: () {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) => ChartsPage()));
-                              }, //TODO add navigation
+                              },
                               style: TextButton.styleFrom(
                                 backgroundColor: ColourPalette.white,
                                 shape: RoundedRectangleBorder(

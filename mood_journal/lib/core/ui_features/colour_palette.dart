@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+/// The `ColourPalette` class in Dart defines static constant colors for various shades of purple,
+/// aquamarine, lavender, gray, black, and white.
 abstract class ColourPalette {
   static const Color indigo = Color.fromRGBO(36, 18, 73, 1);
   static const Color darkPurple = Color.fromRGBO(7, 13, 154, 1);

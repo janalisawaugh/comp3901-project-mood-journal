@@ -1,21 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-//import 'package:flutter_svg/flutter_svg.dart';
-import 'package:datepicker_dropdown/datepicker_dropdown.dart';
-//import 'package:flutter_svg/svg.dart';
-import 'package:mood_journal/core/presentation/account_setup_consent.dart';
 import 'package:mood_journal/core/presentation/feedback_page.dart';
 import 'package:mood_journal/core/presentation/login_page.dart';
-import 'package:mood_journal/core/presentation/sign_in_page.dart';
 import 'package:mood_journal/core/ui_features/colour_palette.dart';
-// import 'package:provider/provider.dart';
-//import 'dart:ui' show lerpDouble;
-
 import 'package:mood_journal/core/ui_features/images.dart';
 
-// import 'package:flutter_riverpod/flutter_riverpod.dart';
-// import 'package:flutter_svg/flutter_svg.dart';
-
+/// The `AccountCentrePage` class is a StatefulWidget in Dart used for managing account-related
+/// functionalities. The most important functionalities on this page were implemented, namely Feedback and Logout.
 class AccountCentrePage extends StatefulWidget {
   @override
   State<AccountCentrePage> createState() => _AccountCentrePage();
@@ -242,6 +233,10 @@ class _AccountCentrePage extends State<AccountCentrePage> {
                             shadowColor: ColourPalette.gray,
                             borderRadius: BorderRadius.circular(5),
                             child: TextButton.icon(
+                              /// Defining an `onPressed` event handler for a button. When the button is
+                              /// pressed, it uses the `Navigator` class to push a new route onto the
+                              /// navigation stack. The new route is created using `MaterialPageRoute`
+                              /// and it navigates to the `FeedbackPage` widget.
                               onPressed: () {
                                 Navigator.push(
                                     context,
@@ -320,6 +315,9 @@ class _AccountCentrePage extends State<AccountCentrePage> {
                             shadowColor: ColourPalette.gray,
                             borderRadius: BorderRadius.circular(5),
                             child: TextButton.icon(
+                              /// Setting an onPressed event handler for a button in a
+                              /// Dart code snippet. When the button is pressed, it will navigate to the
+                              /// LoginPage using the Navigator class in Flutter.
                               onPressed: () {
                                 Navigator.push(
                                     context,

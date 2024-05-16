@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
 import 'package:mood_journal/core/presentation/home_page.dart';
 import 'package:mood_journal/core/ui_features/colour_palette.dart';
-
 import 'package:mood_journal/core/ui_features/images.dart';
 
 class AccountSetupProfilePage extends StatefulWidget {
@@ -89,6 +87,11 @@ class _AccountProfilePage extends State<AccountSetupProfilePage> {
                                   SizedBox(
                                     width: 104,
                                     child: TextButton(
+                                      /// The `onPressed` function is a callback function
+                                      ///  that is triggered when the associated button
+                                      /// is pressed. In this specific case, when the button is pressed,
+                                      /// it navigates to the `HomePageBar` using the `Navigator.push`
+                                      /// method with a new `MaterialPageRoute`.
                                       onPressed: () {
                                         Navigator.push(
                                             context,
@@ -114,6 +117,12 @@ class _AccountProfilePage extends State<AccountSetupProfilePage> {
                                   SizedBox(
                                     width: 104,
                                     child: TextButton(
+                                      /// The `onPressed` function  is a
+                                      /// callback function that is triggered when a specific button is
+                                      /// pressed. In this case, when the button associated with this
+                                      /// `onPressed` function is pressed, it navigates to the
+                                      /// `HomePageBar` using the `Navigator.push` method with a new
+                                      /// `MaterialPageRoute`.
                                       onPressed: () {
                                         Navigator.push(
                                             context,

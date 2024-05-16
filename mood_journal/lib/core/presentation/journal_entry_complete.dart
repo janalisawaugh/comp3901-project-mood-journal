@@ -8,9 +8,7 @@ import 'package:mood_journal/core/ui_features/colour_palette.dart';
 
 import 'package:mood_journal/core/ui_features/images.dart';
 
-
 class JournalEntryCompletePage extends StatefulWidget {
-  
   @override
   State<JournalEntryCompletePage> createState() => _JournalEntryCompletePage();
 }
@@ -18,7 +16,6 @@ class JournalEntryCompletePage extends StatefulWidget {
 class _JournalEntryCompletePage extends State<JournalEntryCompletePage> {
   String? _receivedDate = '';
   String stringDate = DateTime.now().toString();
-  
 
   @override
   Widget build(BuildContext context) {
@@ -64,8 +61,7 @@ class _JournalEntryCompletePage extends State<JournalEntryCompletePage> {
                             //text field for entry title
                             height: 28,
                             width: 308,
-                            child: Text(
-                                "Bad Day",
+                            child: Text("Bad Day",
                                 style: TextStyle(
                                     fontFamily: 'Inter',
                                     fontSize: 12,
@@ -114,7 +110,7 @@ class _JournalEntryCompletePage extends State<JournalEntryCompletePage> {
                                     MaterialPageRoute(
                                         builder: (context) =>
                                             JournalEntriesPage()));
-                              }, //TODO add navigation
+                              },
                               style: TextButton.styleFrom(
                                 backgroundColor: ColourPalette.purple,
                                 shape: RoundedRectangleBorder(

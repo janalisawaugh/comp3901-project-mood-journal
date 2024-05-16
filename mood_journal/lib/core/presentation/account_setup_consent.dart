@@ -82,6 +82,10 @@ class _AccountConsentPage extends State<AccountSetupConsentPage> {
                               width: 200,
                               child: TextButton(
                                 onPressed: () {
+                                  /// The `Navigator.push` method is used in Flutter to navigate to a
+                                  /// new screen or page within your app. In this specific code snippet,
+                                  /// when the "Save" button is pressed, `Navigator.push` is called with
+                                  /// a `MaterialPageRoute` as the argument.
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(

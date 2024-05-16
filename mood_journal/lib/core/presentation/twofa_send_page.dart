@@ -7,14 +7,18 @@ import 'package:mood_journal/core/presentation/twofa_page.dart';
 import 'package:mood_journal/core/ui_features/colour_palette.dart';
 import 'package:mood_journal/core/ui_features/images.dart';
 
+/// The `TwoFactorSendPage` class is a StatefulWidget for users to choose the method of 2 factor authentication.
+/// Email 2 factor authentication was the method implemented.
 class TwoFactorSendPage extends StatefulWidget {
   @override
   State<TwoFactorSendPage> createState() => _TwoFactorSendPage();
 }
 
 class _TwoFactorSendPage extends State<TwoFactorSendPage> {
+  // For determining which of the buttons were selected
   bool emailSelected = false;
   bool smsSelected = false;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -97,6 +101,10 @@ class _TwoFactorSendPage extends State<TwoFactorSendPage> {
                                     height: 94,
                                     width: 322,
                                     child: TextButton.icon(
+                                      /// The `onPressed` function in the code is a
+                                      /// callback function that is triggered when the corresponding
+                                      /// button is pressed. In this specific case, it toggles the
+                                      /// selection state of the email button. Same method used for SMS button.
                                       onPressed: () {
                                         setState(() {
                                           emailSelected = !emailSelected;
@@ -168,6 +176,9 @@ class _TwoFactorSendPage extends State<TwoFactorSendPage> {
                             SizedBox(
                               width: 200,
                               child: TextButton(
+                                /// The `onPressed` function in the code snippet you provided is a
+                                /// callback function that is triggered when the "Send" button is
+                                /// pressed in the `TwoFactorSendPage` widget.
                                 onPressed: () {
                                   Navigator.push(
                                       context,

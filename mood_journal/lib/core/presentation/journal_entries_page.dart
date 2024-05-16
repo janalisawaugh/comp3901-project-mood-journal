@@ -13,16 +13,13 @@ import 'package:mood_journal/core/ui_features/colour_palette.dart';
 import 'package:mood_journal/core/ui_features/images.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 
-// import 'package:flutter_riverpod/flutter_riverpod.dart';
-// import 'package:flutter_svg/flutter_svg.dart';
-
 class JournalEntriesPage extends StatefulWidget {
   @override
   State<JournalEntriesPage> createState() => _JournalEntriesPage();
 }
 
 class _JournalEntriesPage extends State<JournalEntriesPage> {
-  // For passing the date to the other screen
+  // For passing the date to the monthly journal entries screen
   String? todaydDateString =
       DateFormat('yMMMd').format(DateTime.now()).toString();
   String? _selectedDateString =
@@ -31,6 +28,13 @@ class _JournalEntriesPage extends State<JournalEntriesPage> {
   String journalEntryDate = 'DAY ';
   String entryTitle = 'TITLE OF JOURNAL ENTRY';
 
+  /// The `initState` function in a Flutter widget sets the initial selected date string to the current
+  /// month and year.
+  ///
+  /// @param context The `context` parameter in the `build` method of a Flutter widget represents the
+  /// location of the widget within the widget tree. It provides access to various services and
+  /// information, such as the theme, media query data, and navigation. The `BuildContext` class also
+  /// allows widgets to find and interact with
   @override
   Widget build(BuildContext context) {
     void initState() {
@@ -39,6 +43,13 @@ class _JournalEntriesPage extends State<JournalEntriesPage> {
       super.initState();
     }
 
+    /// The `viewChanged` function updates the selected date string and date based on the visible dates
+    /// in a calendar view and triggers a UI update.
+    ///
+    /// @param viewChangedDetails The `viewChangedDetails` parameter in the `viewChanged` method likely
+    /// contains information about the changes in the view, such as the visible dates after a view
+    /// change event. It is used to update the `_selectedDateString` and
+    /// `_selectedDate` variables based on the date selected in the calendar.
     void viewChanged(ViewChangedDetails viewChangedDetails) {
       _selectedDateString = DateFormat('MMMM yyyy')
           .format(viewChangedDetails.visibleDates[0])
@@ -124,6 +135,12 @@ class _JournalEntriesPage extends State<JournalEntriesPage> {
                             height: 40,
                             width: 350,
                             child: TextButton(
+                              /// Defining an `onPressed` event handler
+                              /// for a button press. When the button is pressed, it will navigate to a
+                              /// new screen using the `Navigator.push` method in Flutter. The new
+                              /// screen being navigated to is `JournalEntriesMonthlyPage`, and it is
+                              /// passing a parameter `month` with the value of `_selectedDateString` to
+                              /// that screen.
                               onPressed: () {
                                 Navigator.push(
                                     context,
@@ -131,7 +148,7 @@ class _JournalEntriesPage extends State<JournalEntriesPage> {
                                         builder: (context) =>
                                             JournalEntriesMonthlyPage(
                                                 month: _selectedDateString)));
-                              }, //TODO add navigation
+                              },
                               style: TextButton.styleFrom(
                                 backgroundColor: ColourPalette.white,
                                 shape: RoundedRectangleBorder(
@@ -247,6 +264,11 @@ class _JournalEntriesPage extends State<JournalEntriesPage> {
                             height: 30,
                             width: 150,
                             child: ElevatedButton.icon(
+                              /// Defining an `onPressed` event handler
+                              /// for a button or similar widget. When the button is pressed, it uses the
+                              /// `Navigator.push` method to navigate to a new screen represented by the
+                              /// `JournalEntryDailyPage` widget. It passes a parameter `dateToday` with
+                              /// the value of `todaydDateString` to the `JournalEntryDailyPage` widget.
                               onPressed: () {
                                 Navigator.push(
                                     context,
@@ -254,7 +276,7 @@ class _JournalEntriesPage extends State<JournalEntriesPage> {
                                         builder: (context) =>
                                             JournalEntryDailyPage(
                                                 dateToday: todaydDateString)));
-                              }, //TODO add correct navigation
+                              },
                               style: TextButton.styleFrom(
                                 backgroundColor: ColourPalette.white,
                                 shape: RoundedRectangleBorder(

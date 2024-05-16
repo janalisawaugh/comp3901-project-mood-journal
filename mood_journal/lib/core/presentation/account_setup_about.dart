@@ -13,7 +13,7 @@ class AccountSetupAboutPage extends StatefulWidget {
 }
 
 class _AccountAboutPage extends State<AccountSetupAboutPage> {
-  // variables for icon buttons
+  // variables for icon buttons to show whether or not they have been selected
   bool sunnyfilledSelected = false;
   bool partcloudfilledSelected = false;
   bool cloudyfilledSelected = false;
@@ -1020,6 +1020,15 @@ class _AccountAboutPage extends State<AccountSetupAboutPage> {
                             SizedBox(
                               width: 200,
                               child: TextButton(
+                                /// The code is defining an `onPressed` event handler
+                                /// for a button press. When the button is pressed, it navigates to the
+                                /// `AccountSetupConsentPage` using the `Navigator.push` method.
+                                /// Additionally, it sets the state of the current widget by updating
+                                /// the values of `collectedAge`, `collectedGender`,
+                                /// `collectedDisorder`, and `collectedHobby` with the text input values
+                                /// from the corresponding controllers (`ageController`,
+                                /// `genderController`, `disorderController`, `hobbyController`). These
+                                /// values are to be stored in the User table in the database.
                                 onPressed: () {
                                   Navigator.push(
                                       context,

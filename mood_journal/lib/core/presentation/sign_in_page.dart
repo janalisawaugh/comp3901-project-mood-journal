@@ -1,7 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-//import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mood_journal/core/presentation/account_setup_info.dart';
 import 'package:mood_journal/core/presentation/home_page.dart';
 import 'package:mood_journal/core/presentation/twofa_send_page.dart';
@@ -168,7 +167,6 @@ class _SignInPage extends State<SignInPage> {
                               width: 200,
                               child: TextButton(
                                 onPressed: () {
-                                  //TODO fix navigation
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(

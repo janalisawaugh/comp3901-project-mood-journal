@@ -6,12 +6,10 @@ import 'package:mood_journal/core/presentation/journal_entry_complete.dart';
 import 'package:mood_journal/core/presentation/login_page.dart';
 import 'package:mood_journal/core/presentation/sign_in_page.dart';
 import 'package:mood_journal/core/ui_features/colour_palette.dart';
-
 import 'package:mood_journal/core/ui_features/images.dart';
 
-// import 'package:flutter_riverpod/flutter_riverpod.dart';
-// import 'package:flutter_svg/flutter_svg.dart';
-
+/// The `JournalEntryPage` class in Dart is a stateful widget that allows a journal entry for a
+/// specific date.
 class JournalEntryPage extends StatefulWidget {
   JournalEntryPage({required displayDate});
   String? displayDate;
@@ -20,8 +18,12 @@ class JournalEntryPage extends StatefulWidget {
 }
 
 class _JournalEntryPage extends State<JournalEntryPage> {
+  // For getting the current date from previous page
   String? _receivedDate = '';
   String stringDate = DateTime.now().toString();
+
+  /// The initState function in Dart sets the _receivedDate variable to the displayDate passed in
+  /// through the widget and converts it to a string.
   @override
   void initState() {
     super.initState();
@@ -143,13 +145,20 @@ class _JournalEntryPage extends State<JournalEntryPage> {
                           SizedBox(
                             width: 200,
                             child: TextButton(
+                              /// The `onPressed` function is a callback
+                              /// function that is triggered when the associated button is pressed. In
+                              /// this case, when the "Finished" button is pressed, it navigates to a
+                              /// new screen represented by the `JournalEntryCompletePage` using the
+                              /// `Navigator.push` method. If integration had been completed pressing
+                              /// this button would also trigger saving the text as a journal entry for
+                              /// the user in the database
                               onPressed: () {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) =>
                                             JournalEntryCompletePage()));
-                              }, //TODO add navigation
+                              },
                               style: TextButton.styleFrom(
                                 backgroundColor: ColourPalette.purple,
                                 shape: RoundedRectangleBorder(
