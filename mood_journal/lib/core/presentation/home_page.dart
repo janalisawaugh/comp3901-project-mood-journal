@@ -70,7 +70,7 @@ class HomePage extends StatefulWidget {
 class _HomePage extends State<HomePage> {
   String? todayDateString =
       DateFormat('yMMMd').format(DateTime.now()).toString();
-  // String firstName = "J A N A L I S A";
+  String entryCount = "0";
 
   @override
   Widget build(BuildContext context) {
@@ -132,7 +132,7 @@ class _HomePage extends State<HomePage> {
                                   TextSpan(
                                     // TODO change this back and also use a variable
                                     text:
-                                        "J A N A L I S A", // please change to variable
+                                        "M A R T I N", // please change to variable
                                     style: TextStyle(
                                         color: ColourPalette.purpleNameText,
                                         fontFamily: 'Inter',
@@ -173,7 +173,7 @@ class _HomePage extends State<HomePage> {
                                                           FontWeight.w400),
                                                 ),
                                                 Text(
-                                                  "3 1",
+                                                  "0",
                                                   textAlign: TextAlign.center,
                                                   style: TextStyle(
                                                       color: ColourPalette
@@ -211,7 +211,7 @@ class _HomePage extends State<HomePage> {
                                                           FontWeight.w400),
                                                 ),
                                                 Text(
-                                                  "3 0",
+                                                  entryCount,
                                                   textAlign: TextAlign.center,
                                                   style: TextStyle(
                                                       color: ColourPalette
@@ -280,7 +280,7 @@ class _HomePage extends State<HomePage> {
                                     //overflow: TextOverflow.clip,
                                     text: const TextSpan(children: [
                                       TextSpan(
-                                          text: "F I R S T  N A M E",
+                                          text: "M A R T I N",
                                           style: TextStyle(
                                               color: ColourPalette.white,
                                               fontFamily: 'Inter',

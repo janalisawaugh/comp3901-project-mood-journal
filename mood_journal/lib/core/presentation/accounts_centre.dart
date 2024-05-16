@@ -22,7 +22,7 @@ class AccountCentrePage extends StatefulWidget {
 }
 
 class _AccountCentrePage extends State<AccountCentrePage> {
-  String fullName = "F U L L  N A M E";
+  String fullName = "M A R T I N  B A R T L E Y";
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -91,7 +91,7 @@ class _AccountCentrePage extends State<AccountCentrePage> {
                                       style: TextStyle(
                                           color: ColourPalette.black,
                                           fontFamily: 'Inter',
-                                          fontSize: 20,
+                                          fontSize: 18,
                                           fontWeight: FontWeight.w400),
                                     )
                                   ],
