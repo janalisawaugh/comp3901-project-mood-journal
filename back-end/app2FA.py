@@ -15,14 +15,14 @@ db_config = {
     'user': 'root',
     'password': 'password',
     'host': 'localhost',
-    'database': 'mood_journal2'
+    'database': 'mood_journal'
 }
 
 # SMTP configuration for sending emails
 app.config["MAIL_SERVER"] = 'smtp.gmail.com'
 app.config["MAIL_PORT"] = 465
-app.config["MAIL_USERNAME"] = 'moodjournalinc@gmail.com'
-app.config['MAIL_PASSWORD'] = 'yotqzgdzpefzxkre'
+app.config["MAIL_USERNAME"] = '' #removed username for safety reasons
+app.config['MAIL_PASSWORD'] = '' #removed username for safety reasons
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 
@@ -35,7 +35,7 @@ def generate_passkeys():
 # Function to send email with passkeys
 def send_otp(email, passkeys):
     otp_list = "\n".join(map(str, passkeys))
-    msg = Message('Your Passkeys', sender='moodjournalinc@gmail.com', recipients=[email])
+    msg = Message('Your Passkeys', sender='', recipients=[email])
     msg.body = f'Your passkeys are:\n\n{otp_list}\n\nDo not share these keys with ANYONE. They are used to log you into the app.'
     mail.send(msg)
 
@@ -64,7 +64,7 @@ def register_user():
         hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
 
         # Insert user into the database
-        cursor.execute("INSERT INTO Users (first_name, last_name, email, password, totp_secret) VALUES (%s, %s, %s, %s, %s)",
+        cursor.execute("INSERT INTO Users (name , email, password, totp_secret) VALUES (%s, %s, %s, %s)",
                        (name, email, hashed_password, ', '.join(map(str, passkeys))))
         cnx.commit()
 
