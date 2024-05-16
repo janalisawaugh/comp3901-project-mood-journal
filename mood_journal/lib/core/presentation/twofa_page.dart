@@ -31,7 +31,11 @@ class _TwoFactorInputPage extends State<TwoFactorInputPage> {
         home: Scaffold(
             backgroundColor: ColourPalette.indigo,
             appBar: AppBar(
-              leading: BackButton(),
+              leading: BackButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
               elevation: 0,
               backgroundColor: ColourPalette.indigo,
             ),

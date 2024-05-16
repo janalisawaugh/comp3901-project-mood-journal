@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:mood_journal/core/presentation/analytics_page.dart';
 import 'package:mood_journal/core/ui_features/colour_palette.dart';
 import 'package:mood_journal/core/ui_features/images.dart';
 
@@ -20,7 +21,8 @@ class _ChartsPage extends State<ChartsPage> {
           appBar: AppBar(
             leading: BackButton(
               onPressed: () {
-                Navigator.of(context).pop();
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => AnalyticsPage()));
               },
             ),
             scrolledUnderElevation: 0,
