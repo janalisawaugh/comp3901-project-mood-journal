@@ -99,45 +99,7 @@ class _AnalyticsPage extends State<AnalyticsPage> {
                                 SizedBox(width: 15),
                                 Expanded(
                                   child: Text(
-                                    "Do activities you enjoy",
-                                    style: TextStyle(
-                                        fontFamily: 'Inter',
-                                        fontSize: 17,
-                                        color: ColourPalette.black,
-                                        fontWeight: FontWeight.w400),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(15.0),
-                            child: Row(
-                              children: [
-                                Image.asset(Images.recommendationIcon),
-                                SizedBox(width: 15),
-                                Expanded(
-                                  child: Text(
-                                    "Connect with loved ones and lean on them for support",
-                                    style: TextStyle(
-                                        fontFamily: 'Inter',
-                                        fontSize: 17,
-                                        color: ColourPalette.black,
-                                        fontWeight: FontWeight.w400),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(15.0),
-                            child: Row(
-                              children: [
-                                Image.asset(Images.recommendationIcon),
-                                SizedBox(width: 15),
-                                Expanded(
-                                  child: Text(
-                                    "Take breaks when you get overwhelmed, you need rest",
+                                    "Allow yourself to feel sadness and seek comfort through self-care and support",
                                     style: TextStyle(
                                         fontFamily: 'Inter',
                                         fontSize: 17,
