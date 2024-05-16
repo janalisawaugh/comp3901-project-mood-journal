@@ -15,7 +15,8 @@ class SignInPage extends StatefulWidget {
 }
 
 class _SignInPage extends State<SignInPage> {
-  //for getting text from form fields
+  //For getting text from text fields, add controllers to respective fields
+  //then use setState to assign controller values to string variables
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
