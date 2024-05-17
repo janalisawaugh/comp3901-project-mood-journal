@@ -32,3 +32,20 @@
             FOREIGN KEY (user_id) REFERENCES Users(user_id)
         );
         
+        CREATE TABLE Analytics (
+            analytics_id INT AUTO_INCREMENT PRIMARY KEY,
+            user_id INT NOT NULL,
+             
+            FOREIGN KEY (user_id) REFERENCES Users(user_id)
+        );
+
+        CREATE TABLE IF NOT EXISTS Feedback (
+            ID INT AUTO_INCREMENT PRIMARY KEY,
+            user_id INT NOT NULL,
+            recommendation_id INT NOT NULL,
+            chart_id VARCHAR(255),
+            report_id VARCHAR(255),
+            FOREIGN KEY (user_id) REFERENCES Users(user_id)
+            FOREIGN KEY (recommendation_id) REFERENCES Recommendations(recommendation_id)
+        );
+                
